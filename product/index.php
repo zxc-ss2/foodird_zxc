@@ -126,7 +126,7 @@ print_r($similar_products);
                             </div>
                             <div class="main-product__way way-product">
                                 <div class="way-product__delivery">
-                                    <p>Доставка за 40 минут</p>
+                                    <p>Доставка за 20 минут</p>
                                     <p>Выбрать адрес доставки</p>
                                 </div>
                                 <div class="way-product__pickup">
