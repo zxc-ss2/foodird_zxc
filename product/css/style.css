@@ -832,6 +832,13 @@ hr {
   background: #e97171;
 }
 
+.item-product__label_cart {
+  background: #7dcb75;
+  font-weight: 700;
+  font-size: 20px;
+  display: none;
+}
+
 .item-product__image {
   padding: 26.31579% 0 35.4386% 0;
   display: flex;

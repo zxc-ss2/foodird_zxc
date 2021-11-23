@@ -49,11 +49,11 @@ session_start();
                         echo '<a href="../controllers/logout.php" class="actions-header__item actions-header__item_favorites _icon-logout"></a>';
                     }
                     else{
-                        echo '<a href="../../project/reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
+                        echo '<a href="../reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
                     }
                     ?>
                     <div class="actions-header__item cart-header">
-                        <a href="../../project/cart/index.php" class="cart-header__icon _icon-cart"></a>
+                        <a href="../cart/index.php" class="cart-header__icon _icon-cart"></a>
                         <div class="cart-header__body">
                             <ul class="cart-header__list cart-list"></ul>
                         </div>

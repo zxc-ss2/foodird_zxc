@@ -1032,6 +1032,7 @@ color: #000;
 
 .content-page__btn .see-more {
   border: 2px solid #000 !important;
+  cursor: pointer;
 }
 
 body {

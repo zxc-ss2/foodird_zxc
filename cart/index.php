@@ -28,6 +28,20 @@ foreach ($id as $key) {
     $cart_products[] = $query_cart_products -> fetchAll();
 }
 
+$cart_categories_sql = "select category_id from products inner join cart on products.product_id = cart.product_id where products.product_id = cart.product_id group by(category_id)";
+$cart_categories_query = $pdo -> prepare($cart_categories_sql);
+$cart_categories_query -> execute();
+$cart_categories = $cart_categories_query -> fetchAll();
+
+$similar_slider_products = array();
+foreach ($cart_categories as $key) {
+    $similar_slider_products_sql = "select products.product_id, product_name, product_price, product_path, discount_id, category_id from products left outer join cart on products.product_id = cart.product_id where category_id = :id and cart.cart_id is null order by rand()";
+    $similar_cart_products_query = $pdo -> prepare($similar_slider_products_sql);
+    $similar_cart_products_query -> execute([
+        'id' => $key['category_id']
+    ]);
+    $similar_slider_products[] = $similar_cart_products_query -> fetchAll();
+}
 
 ?>
 
@@ -83,11 +97,11 @@ foreach ($id as $key) {
                         echo '<a href="../controllers/logout.php" class="actions-header__item actions-header__item_favorites _icon-logout"></a>';
                     }
                     else{
-                        echo '<a href="../../project/reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
+                        echo '<a href="..//reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
                     }
                     ?>
                     <div class="actions-header__item cart-header">
-                        <a href="../../project/cart/index.php" class="cart-header__icon _icon-cart"></a>
+                        <a href="../cart/index.php" class="cart-header__icon _icon-cart"></a>
                         <div class="cart-header__body">
                             <ul class="cart-header__list cart-list"></ul>
                         </div>
@@ -169,174 +183,38 @@ foreach ($id as $key) {
             </div>
             <div class="body-women__wrapper">
                 <div class="aslider">
-                    <div class="slider__item qwe">
-                        <article class="products__item item-product">
-                            <div class="item-product__labels">
-                                <div class="item-product__label item-product__label_sale">-40%</div>
-                            </div>
-                            <a href="" class="item-product__image">
-                                <img class="catalog-img" src="img/carrot.png" alt="">
-                            </a>
-                            <div class="item-product__body">
-                                <div class="item-product__content">
-                                    <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                                </div>
-                                <div class="item-product__prices">
-                                    <div class="item-product__price">63 руб./кг</div>
-                                    <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                                </div>
-                                <div class="item-product__actions actions-product">
-                                    <div class="actions-product__body">
-                                        <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="slider__item qwe">
-                        <article class="products__item item-product">
-                            <div class="item-product__labels">
-                                <div class="item-product__label item-product__label_sale">-40%</div>
-                            </div>
-                            <a href="" class="item-product__image">
-                                <img class="catalog-img" src="img/carrot.png" alt="">
-                            </a>
-                            <div class="item-product__body">
-                                <div class="item-product__content">
-                                    <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                                </div>
-                                <div class="item-product__prices">
-                                    <div class="item-product__price">63 руб./кг</div>
-                                    <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                                </div>
-                                <div class="item-product__actions actions-product">
-                                    <div class="actions-product__body">
-                                        <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="slider__item qwe">
-                        <article class="products__item item-product">
-                            <div class="item-product__labels">
-                                <div class="item-product__label item-product__label_sale">-40%</div>
-                            </div>
-                            <a href="" class="item-product__image">
-                                <img class="catalog-img" src="img/carrot.png" alt="">
-                            </a>
-                            <div class="item-product__body">
-                                <div class="item-product__content">
-                                    <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                                </div>
-                                <div class="item-product__prices">
-                                    <div class="item-product__price">63 руб./кг</div>
-                                    <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                                </div>
-                                <div class="item-product__actions actions-product">
-                                    <div class="actions-product__body">
-                                        <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="slider__item qwe">
-                        <article class="products__item item-product">
-                            <div class="item-product__labels">
-                                <div class="item-product__label item-product__label_sale">-40%</div>
-                            </div>
-                            <a href="" class="item-product__image">
-                                <img class="catalog-img" src="img/carrot.png" alt="">
-                            </a>
-                            <div class="item-product__body">
-                                <div class="item-product__content">
-                                    <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                                </div>
-                                <div class="item-product__prices">
-                                    <div class="item-product__price">63 руб./кг</div>
-                                    <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                                </div>
-                                <div class="item-product__actions actions-product">
-                                    <div class="actions-product__body">
-                                        <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="slider__item qwe">
-                        <article class="products__item item-product">
-                            <div class="item-product__labels">
-                                <div class="item-product__label item-product__label_sale">-40%</div>
-                            </div>
-                            <a href="" class="item-product__image">
-                                <img class="catalog-img" src="img/carrot.png" alt="">
-                            </a>
-                            <div class="item-product__body">
-                                <div class="item-product__content">
-                                    <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                                </div>
-                                <div class="item-product__prices">
-                                    <div class="item-product__price">63 руб./кг</div>
-                                    <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                                </div>
-                                <div class="item-product__actions actions-product">
-                                    <div class="actions-product__body">
-                                        <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="slider__item qwe">
-                        <article class="products__item item-product">
-                            <div class="item-product__labels">
-                                <div class="item-product__label item-product__label_sale">-40%</div>
-                            </div>
-                            <a href="" class="item-product__image">
-                                <img class="catalog-img" src="img/carrot.png" alt="">
-                            </a>
-                            <div class="item-product__body">
-                                <div class="item-product__content">
-                                    <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                                </div>
-                                <div class="item-product__prices">
-                                    <div class="item-product__price">63 руб./кг</div>
-                                    <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                                </div>
-                                <div class="item-product__actions actions-product">
-                                    <div class="actions-product__body">
-                                        <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="slider__item qwe">
-                        <article class="products__item item-product">
-                            <div class="item-product__labels">
-                                <div class="item-product__label item-product__label_sale">-40%</div>
-                            </div>
-                            <a href="" class="item-product__image">
-                                <img class="catalog-img" src="img/carrot.png" alt="">
-                            </a>
-                            <div class="item-product__body">
-                                <div class="item-product__content">
-                                    <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                                </div>
-                                <div class="item-product__prices">
-                                    <div class="item-product__price">63 руб./кг</div>
-                                    <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                                </div>
-                                <div class="item-product__actions actions-product">
-                                    <div class="actions-product__body">
-                                        <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
+                    <?php
+                            foreach ($similar_slider_products as $product => $zxc) {
+                                foreach ($zxc as $product2 => $qwe) {
+
+                                    echo '
+                                    <div class="slider__item qwe">
+                                        <article class="products__item item-product" data-id="'. $zxc[$product2]["product_id"] .'">
+                                            <div class="item-product__labels">
+                                                <div class="item-product__label item-product__label_sale">-'. $zxc[$product2]["discount_id"] * 5 .'%</div>
+                                            </div>
+                                            <a href="" class="item-product__image">
+                                                <img class="catalog-img" src="'. $zxc[$product2]["product_path"] .'" alt="">
+                                            </a>
+                                            <div class="item-product__body">
+                                                <div class="item-product__content">
+                                                    <h5 class="item-product__title">'. $zxc[$product2]["product_name"] .'</h5>
+                                                </div>
+                                                <div class="item-product__prices">
+                                                    <div class="item-product__price">'. round($zxc[$product2]["product_price"] - $zxc[$product2]["product_price"] * ($zxc[$product2]["discount_id"] * 5)/100,1) .'руб.</div>
+                                                    <div class="item-product__price item-product__price_old">'. $zxc[$product2]["product_price"] .'руб.</div>
+                                                </div>
+                                                <div class="item-product__actions actions-product">
+                                                    <div class="actions-product__body">
+                                                        <a class="btn  actions-product__btn">В корзину</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>';
+                                }
+                            }
+                        ?>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ $query_similar_products -> execute([
     'id' => $_GET['category']
 ]);
 $similar_products = $query_similar_products -> fetchAll();
-print_r($similar_products);
+
 ?>
 
 <!DOCTYPE html>
@@ -64,11 +64,11 @@ print_r($similar_products);
                         echo '<a href="../controllers/logout.php" class="actions-header__item actions-header__item_favorites _icon-logout"></a>';
                     }
                     else{
-                        echo '<a href="../../project/reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
+                        echo '<a href="../reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
                     }
                     ?>
                     <div class="actions-header__item cart-header">
-                        <a href="../../project/cart/index.php" class="cart-header__icon _icon-cart"></a>
+                        <a href="../cart/index.php" class="cart-header__icon _icon-cart"></a>
                         <div class="cart-header__body">
                             <ul class="cart-header__list cart-list"></ul>
                         </div>
@@ -94,7 +94,7 @@ print_r($similar_products);
                     <div class="body-product__content content-product">
                         <div class="content-product__slider-for">
                             <div class="slider-for__item">
-                                <img src="<?php echo $similar_products[0][]?>" alt="">
+                                <img src="<?php echo $similar_products[0]['prodct_path']?>" alt="">
                             </div>
                             <div class="slider-for__item">
                                 <img src="img/product2.jpg" alt="">
@@ -152,12 +152,13 @@ print_r($similar_products);
                         foreach ($similar_products as $key) {
                             echo '
                             <div class="slider__item">
-                                <article class="products__item item-product">
+                                <article class="products__item item-product" data-id='. $key['product_id'] .'>
                                     <div class="item-product__labels">
-                                        <div class="item-product__label item-product__label_sale">-'. $key['discount_id'] .'%</div>
+                                        <div class="item-product__label item-product__label_sale">-'. $key['discount_id'] * 5 .'%</div>
+                                        <div class="item-product__label item-product__label_cart _icon-cart"></div>
                                     </div>
                                     <a href="" class="item-product__image">
-                                        <img class="catalog-img" '. $key['product_path'] .'" alt="">
+                                        <img class="catalog-img" src="'. $key['product_path'] .'" alt="">
                                     </a>
                                     <div class="item-product__body">
                                         <div class="item-product__content">

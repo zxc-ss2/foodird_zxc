@@ -43,7 +43,7 @@ $random_category_query -> execute([
     'category' => rand(3,count($categories))
 ]);
 $random_category = $random_category_query -> fetchAll();
-echo $random_category[0]['category_name'];
+
 ?>
 
 <!DOCTYPE html>
@@ -93,11 +93,11 @@ echo $random_category[0]['category_name'];
                         echo '<a href="../controllers/logout.php" class="actions-header__item actions-header__item_favorites _icon-logout"></a>';
                     }
                     else{
-                        echo '<a href="../../project/reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
+                        echo '<a href="../reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
                     }
                     ?>
                     <div class="actions-header__item cart-header">
-                        <a href="../../project/cart/index.php" class="cart-header__icon _icon-cart"></a>
+                        <a href="../cart/index.php" class="cart-header__icon _icon-cart"></a>
                         <div class="cart-header__body">
                             <ul class="cart-header__list cart-list"></ul>
                         </div>
@@ -194,7 +194,7 @@ echo $random_category[0]['category_name'];
                         <div class="content-page__title title">
                             <h3>Товары по скидке</h3>
                         </div>
-                        <div class="content-page__items">
+                        <div class="content-page__items page-items__discount">
                             <?php
                                 foreach ($popular_products as $key) {
                                     echo '<article name="zxc" data-id='. $key['product_id'] .' class="content-page__item item-product">
@@ -228,6 +228,7 @@ echo $random_category[0]['category_name'];
                         </div>
                     </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

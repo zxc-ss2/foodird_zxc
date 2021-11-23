@@ -14,8 +14,6 @@ if(isset($_POST['username']) && isset($_POST['pass'])){
 
     $info = $query -> fetchAll(PDO::FETCH_ASSOC);
     $hashed_password = $info[0]['password'];
-    echo $info[0]['password'];
-
     if(password_verify($password, $hashed_password)){
         $sql = "select * from users where email = :login and password = :hashed_password";
         $query = $pdo -> prepare($sql);
@@ -30,9 +28,9 @@ if(isset($_POST['username']) && isset($_POST['pass'])){
             $_SESSION['role'] = $result[0]['role'];
             header("Location: ../cart/index.php");
         }
-    }
-    else{
-        echo "Неверный логин или пароль";
+        else{
+            echo "123";
+        }
     }
 }
 ?>

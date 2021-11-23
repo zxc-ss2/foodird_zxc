@@ -164,87 +164,104 @@ for (let i = 0; i < more.length; i++) {
 }
 
 // ------------------------similar products output-----------------//
-const categories = [];
-const cartCategories = document.querySelectorAll('.item-cart');
-const container = document.querySelector('.aslider');
-for (let index = 0; index < cartCategories.length; index++) {
-    categories.push(cartCategories[index].dataset.category);
-}
-function sendData(){
-    return new Promise((resolve,reject) => {
-        let xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("post", "../controllers/categoriesCart.php"); 
-        let data = [];
-        for(let i = 0; i < categories.length; i++ ){
-            item = {};
-            item["id"] = categories[i];
-            data.push(item);
-        }
+const consistProducts = [];
+new Promise((resolve,reject) => {
+    let xmlHttp2 = new XMLHttpRequest();
+    xmlHttp2.open("post", "../controllers/getCartId.php"); 
 
-            xmlHttp.onreadystatechange = function()
+    xmlHttp2.onreadystatechange = function()
+        {
+            if(xmlHttp2.readyState == 4 && xmlHttp2.status == 200)
             {
-                if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                {   
-                    let result = JSON.parse(xmlHttp.responseText);
-                    // let result = xmlHttp.responseText.split(',');
-                    for (let key in result) {
-                        for (let i = 0; i < result.length; i++) {   
-                            // console.log(result[key][i]);
-                            for (let key2 in result[key][i]) {
-                                let template = `
-                                            <div data-number="${result[key][i]["product_id"]}" class="slider__item">
-                                            <article class="products__item item-product">
-                                                <div class="item-product__labels">
-                                                    <div class="item-product__label item-product__label_sale">-40%</div>
-                                                </div>
-                                                <a href="" class="item-product__image">
-                                                    <img class="catalog-img" src="${result[key][i]["product_path"]}" alt="">
-                                                </a>
-                                                <div class="item-product__body">
-                                                    <div class="item-product__content">
-                                                        <h5 class="item-product__title">${result[key][i]["product_path"]}</h5>
-                                                    </div>
-                                                    <div class="item-product__prices">
-                                                        <div class="item-product__price">63 руб./кг</div>
-                                                        <div class="item-product__price item-product__price_old">${result[key][i]["product_path"]}</div>
-                                                    </div>
-                                                    <div class="item-product__actions actions-product">
-                                                        <div class="actions-product__body">
-                                                            <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                            </div>
-                                            `;
-                                            const track = document.querySelector('.slick-track');
-                                            track.insertAdjacentHTML('beforeEnd', template);
-                            }
-                        }
-                    }
-                    const clonnedProducts = document.querySelectorAll('.slider__item');
-                    for (let i = 0; i < clonnedProducts.length; i++) {
-                        if(clonnedProducts[i].dataset.number == clonnedProducts[i + 1].dataset.number){
-                            clonnedProducts[i].parentNode.removeChild(clonnedProducts[i]);
-                        }
-                    }
+                // for (let i = 0; i < this.responseText.length; i++) {
+                //     const element = array[i];
+                    
+                // }
+                result = JSON.parse(xmlHttp2.responseText);
+                for (let i = 0; i < result.length; i++) {
+                    consistProducts.push(Object.values(result)[i]['product_id']);
                 }
-            }
-            
-            xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xmlHttp.send("id=" + JSON.stringify(categories)); 
-    })
-    
-}
-sendData();
-const maketProducts = document.getElementsByClassName('qwe');
-while(maketProducts[0]){
-    maketProducts[0].parentNode.removeChild(maketProducts[0]);
-}
 
-// while(maketProducts[0]){
-//     maketProducts[0].parentNode.removeChild(maketProducts[0]);
-// }
+                const links = document.querySelectorAll(".actions-product__btn");
+                const itemCart = document.querySelectorAll(".item-product");
+                let numbers = [];
+                let productId = 0;
+
+                for (let i = 0; i < links.length; i++) {
+
+                    if(consistProducts.includes(itemCart[i].dataset.id)){
+                        itemCart[i].childNodes[1].childNodes[3].style.display = "flex";
+                        links[i].setAttribute('disabled', true);
+                    }
+                    else{
+                        links[i].addEventListener('click', () =>{
+                            productId = links[i].closest('.item-product').dataset.id;
+                            console.log(productId);
+                            if(!links[i].classList.contains('_hold')){
+                                links[i].classList.add('_hold');
+                                links[i].classList.add('_fly');
+    
+                                const cart = document.querySelector('.cart-header__icon');
+                                const productImage = links[i].closest('.item-product').childNodes[3].childNodes[1];
+    
+                                const productImageFly = productImage.cloneNode(true);
+    
+                                const productImageFlyTop = productImage.getBoundingClientRect().top;
+                                const productImageFlyLeft = productImage.getBoundingClientRect().left;
+                                const productImageFlyWidth = productImage.offsetWidth;
+                                const productImageFlyHeight = productImage.offsetHeight;
+                                productImageFly.setAttribute('class', '_flyImage _ibg');
+                                productImageFly.style.cssText = `
+                                    left: ${productImageFlyLeft}px !important;
+                                    top: ${productImageFlyTop}px;
+                                    width: ${productImageFlyWidth}px;
+                                    height: ${productImageFlyHeight}px;
+                                `;
+    
+                                document.body.append(productImageFly);
+    
+                                const cartFlyLeft= cart.getBoundingClientRect().left;
+                                const cartFlyTop= cart.getBoundingClientRect().top;
+    
+                                productImageFly.style.cssText = `
+                                    left: ${cartFlyLeft}px !important;
+                                    top: ${cartFlyTop}px;
+                                    width: 0px;
+                                    height: 0px;
+                                    opacity: 0;
+                                `;
+                            }
+    
+                            function sendData(url, id){
+                                return new Promise((resolve,reject) => {
+                                    let xmlHttp = new XMLHttpRequest();
+                                    xmlHttp.open("post", url); 
+                        
+                                        xmlHttp.onreadystatechange = function()
+                                        {
+                                            if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                                            {
+                                                numbers.push(links[i].parentNode.parentNode.parentNode.parentNode.dataset.id);
+                                            }
+                                        }
+                                        xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                                        xmlHttp.send("id=" + id); 
+                                })
+                                
+                            }
+                            sendData("../controllers/server.php",productId);
+                        })
+                    }
+                    
+            }
+                        }
+                    }
+                    xmlHttp2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xmlHttp2.send("id=" + 0); 
+            })
+    
+
+
 
 function startTimer(duration, display) {
     var timer = duration, seconds;
@@ -324,6 +341,13 @@ for (let i = 0; i < removeBtns.length; i++) {
     })
 }
 
+const sliderItemsLabels = document.querySelectorAll('.item-product__label_sale');
+
+for (let i = 0; i < sliderItemsLabels.length; i++) {
+    if(sliderItemsLabels[i].textContent == "-0%"){
+        sliderItemsLabels[i].style.display = "none";
+    }
+}
 
 
 

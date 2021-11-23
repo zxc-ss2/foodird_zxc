@@ -11,7 +11,7 @@
             'id1' => json_decode($_POST['id'],true)[0],
             'id2' => json_decode($_POST['id'],true)[1],
             'id3' => json_decode($_POST['id'],true)[2],
-            'id4' => json_decode($_POST['id'],true)[3],
+            'id4' => json_decode($_POST['id'],true)[3]
         ]);
         array_push($products, $query_products -> fetchAll());
 

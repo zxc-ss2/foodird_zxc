@@ -277,6 +277,13 @@ h6 {
   content: "\e1020";
 }
 
+._flyImage{
+  opacity: 1;
+  position: fixed;
+  z-index: 100;
+  transition: all 1s ease 0s;
+}
+
 .footer {
   margin-top: 100px;
 }
@@ -663,6 +670,7 @@ hr {
 .slick-track {
   display: flex;
   min-width: 100%;
+  padding: 0 10px;
 }
 
 /* Слайд */
@@ -832,6 +840,8 @@ hr {
 }
 
 .finish-cart__btn {
+  border: 2px solid black !important;
+
 }
 
 .pay-cart {
@@ -859,6 +869,9 @@ hr {
   position: relative;
   box-shadow: 0 0 5px rgba(212, 209, 205, 0.7);
   border-radius: 10px;
+  padding: 5px;
+  word-wrap: break-word;
+  height: 100%;
   margin: 0 20px;
 }
 
@@ -890,37 +903,58 @@ hr {
   background: #e97171;
 }
 
+.item-product__label_cart {
+  background: #7dcb75;
+  font-weight: 700;
+  font-size: 20px;
+  display: none;
+}
+
 .item-product__image {
-  padding: 26.31579% 0 35.4386% 0;
+  padding: 26.31579% 0 15.4386% 0;
   display: flex;
   justify-content: center;
   transition: all 0.3s ease 0s;
 }
 
 .item-product__image .catalog-img {
-  width: 75%;
-  max-height: 300px;
+  width: 80%;
+  max-height: 200px;
 }
 
 .item-product__body {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+  word-wrap: break-word;
 }
 
 .item-product__content {
   flex: 1 1 auto;
+  display: flex;
+  align-items: flex-end;
+  word-wrap: break-word;
+  padding: 0 5px;
+}
+
+.item-product__content a{
+  word-wrap: break-word;
 }
 
 .item-product__title {
   font-weight: 600;
   line-height: 120%;
   margin: 0 0 16px 0;
+  word-wrap: break-word;
+  position: relative;
+  z-index: 100;
+  color: #000;
 }
 
 .item-product__text {
   line-height: 150%;
   margin: 0 0 12px 0;
+  z-index: 100;
 }
 
 .item-product__prices {
@@ -952,6 +986,8 @@ hr {
 
 .actions-product__btn {
   flex: 1 1 100%;
+  color: #fff !important;
+  cursor: pointer;
 }
 
 .content-page__title {
@@ -965,6 +1001,7 @@ hr {
 
 .content-page__btn .see-more {
   border: 2px solid #000 !important;
+  cursor: pointer;
 }
 
 body {
@@ -1048,7 +1085,7 @@ body {
   text-align: center;
   transition: all 0.4s ease 0s;
   min-height: 50px;
-  background-color: #f2f8fc;
+  border: 2px solid #fff;
   border-radius: 5px;
   font-weight: 700;
   font-size: 18px;
@@ -1647,18 +1684,19 @@ body {
 
   .item-product__actions {
     opacity: 0;
-    visibility: hidden;
     position: absolute;
-    top: 0;
+    top: 0px;
     left: 0;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(2, 177, 199, 0.1);
     transition: all 0.4s ease 0s;
+    background:rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     z-index: 3;
+
   }
 
   .actions-product__btn:hover {

@@ -16,7 +16,7 @@ seeMore.addEventListener('click', () => {
                 {
                     let result = JSON.parse(xmlHttp.responseText);
                         for (let i = 0; i < result.length; i++) {
-                            const container = document.querySelector('.content-page__items');
+                            const container = document.querySelector('.page-items__discount');
                             for (let j = 0; j < result[i].length; j++) {
                                 let template = `
                                 <article name="zxc" data-id=${result[i][j]["product_id"]} class="content-page__item item-product">
