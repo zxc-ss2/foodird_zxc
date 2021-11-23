@@ -132,7 +132,6 @@ foreach ($cart_categories as $key) {
                     <?php
                     if(isset($_SESSION['login'])){
                         foreach ($cart_products as $key) {
-                        echo (float)$key[0]['product_price'] + 12;
 
                             echo '<div data-id="'. $key[0]['product_id'] .'" data-category="'. $key[0]['category_id'] .'" class="cart__item item-cart">
                         <div class="item-cart__preview">
