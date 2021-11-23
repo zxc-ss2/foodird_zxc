@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 22 2021 г., 19:36
+-- Время создания: Ноя 23 2021 г., 22:47
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.2.34
 
@@ -38,13 +38,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `product_id`, `email`) VALUES
-(110, 23, 'ubaykarova@gmail.com'),
-(112, 6, 'ubaykarova@gmail.com'),
-(113, 4, 'ubaykarova@gmail.com'),
-(114, 9, 'ubaykarova@gmail.com'),
-(115, 18, 'ubaykarova@gmail.com'),
-(116, 10, 'ubaykarova@gmail.com'),
-(117, 15, 'ubaykarova@gmail.com');
+(185, 4, 'ubaykarova@gmail.com'),
+(186, 18, 'ubaykarova@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -153,8 +148,6 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `supplier_id`, `discount_id`, `category_id`, `product_path`) VALUES
-(1, 'Молоко ультрапастеризованное Домик в деревне 3.2%, 925мл', 97.9, 2, 3, 3, 'img/catalog-img/milk.jpg'),
-(2, 'Сыр Маркет Перекрёсток Сулугуни 45%, 280г', 249, 6, NULL, 3, 'img/catalog-img/cheese.png'),
 (3, 'Форель радужная Русское Море филе-кусок слабосолёная, 300г', 719, 7, 6, 11, 'img/catalog-img/forel.jpg'),
 (4, 'Кофе Bushido Black Katana 100% арабика молотый, 227г', 549.9, 8, 4, 14, 'img/catalog-img/cofee.jpg'),
 (5, 'Хлеб Harry\'s American Sandwich пшеничный, 470г', 83.9, 3, 21, 9, 'img/catalog-img/bread.jpg'),
@@ -171,13 +164,60 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `supplier
 (16, 'Вино Canti Chardonnay белое полусухое 0,75л, 11,5%', 839, 2, 3, 18, 'img/catalog-img/canti-chardonnay.jpg'),
 (17, 'Виски Jack Daniels Тенесси Old No.7 40%, 700мл', 2299, 8, 5, 18, 'img/catalog-img/jack-daniels.jpg'),
 (18, 'Пиво Heineken светлое 4.8%, 470мл', 53.9, 1, 3, 18, 'img/catalog-img/heineken.jpg'),
-(19, 'Йогурт Чудо Десерт хрустящий шоколадный соблазн 3%, 105г', 57.9, 7, 6, 3, 'img/catalog-img/chudo-desert.jpg'),
-(20, 'Яйцо куриное Маркет Перекрёсток столовое С1, 10шт', 79.9, 6, 5, 3, 'img/catalog-img/egg-kyrinoe-perekrestok.jpg'),
-(21, 'Сметана Домик в деревне 15%, 300г', 85.9, 2, 2, 3, 'img/catalog-img/smetana-domik.jpg'),
 (22, 'Коктейль молочный Чудо Шоколад 2%, 950г', 134.9, 4, 3, 3, 'img/catalog-img/chudo-milkshake.jpg'),
 (23, 'Киви, 1кг', 119.9, 6, 2, 4, 'img/catalog-img/kiwi.jpg'),
 (24, 'Огурцы Люкс, 450г', 129.9, 7, 2, 4, 'img/catalog-img/cucumber.jpg'),
-(25, 'Лук репчатый, 1кг', 39.9, 4, 2, 4, 'img/catalog-img/onion.jpg');
+(25, 'Лук репчатый, 1кг', 39.9, 4, 2, 4, 'img/catalog-img/onion.jpg'),
+(26, 'Молоко Parmalat Natura Premium питьевое ультрапастеризованное 3.5%, 1л', 97.9, 3, 21, 3, 'img/catalog-img/parmalat.jpg'),
+(27, 'Молоко стерилизованное Агуша 3.2% 925мл с 3 лет', 97.9, 6, 21, 3, 'img/catalog-img/agusha.jpg'),
+(28, 'Сыр Arla Natura Сливочный 45%, 200г', 199.9, 6, 4, 3, 'img/catalog-img/natura.jpg'),
+(29, 'Сыр Ламбер Гауда 45%, 180г', 199.9, 4, 10, 3, 'img/catalog-img/lambert.jpg'),
+(30, 'Сыр творожный Hochland Сливочный 60%, 140г', 99.9, 3, 21, 3, 'img/catalog-img/hohcland.jpg'),
+(31, 'Творог Простоквашино 5% 200г', 109.9, 3, 21, 3, 'img/catalog-img/prostotvorog.jpg'),
+(32, 'Биотворог Тёма со вкусом клубники и банана 4.2%, 100г', 35.9, 3, 21, 3, 'img/catalog-img/temabanana.jpg'),
+(33, 'Биотворог Тёма классический с LGG с 6 месяцев 5%, 100г', 33.9, 5, 5, 3, 'img/catalog-img/temaclassic.jpg'),
+(34, 'Картофель, 1кг', 54.9, 3, 3, 4, 'img/catalog-img/potato.jpg'),
+(35, 'Томаты красные круглые, 1кг', 139.9, 1, 21, 4, 'img/catalog-img/tomato.jpg'),
+(36, 'Яблоки сезонные, 1кг', 79.9, 4, 3, 4, 'img/catalog-img/apple.jpg'),
+(37, 'Апельсины, 1кг', 129.9, 7, 7, 4, 'img/catalog-img/orange.jpg'),
+(38, 'Виноград Киш-миш, 1кг', 169.9, 1, 21, 4, 'img/catalog-img/grape.jpg'),
+(39, 'Груши Конференс, 1кг', 199.99, 6, 6, 4, 'img/catalog-img/pear.jpg'),
+(40, 'Клубника, 250г', 329.9, 8, 2, 4, 'img/catalog-img/strawberry.jpg'),
+(41, 'Малина свежая, 125г', 349.9, 6, 21, 4, 'img/catalog-img/raspberries.jpg'),
+(42, 'Макароны Maltagliati Chifferini rigati №038 рожки мелкие, 500г', 87.9, 7, 5, 5, 'img/catalog-img/maltagliati.jpg'),
+(43, 'Спагетти Шебекинские №2 тонкие, 450г', 69.9, 3, 21, 5, 'img/catalog-img/chebenskie.jpg'),
+(44, 'Рис Маркет Перекрёсток длиннозёрный, 900г', 134.9, 8, 21, 5, 'img/catalog-img/rice.jpg'),
+(45, 'Рис Мистраль Кубань белый круглозёрный, 5х80г', 114.9, 3, 5, 5, 'img/catalog-img/ricekuban.jpg'),
+(46, 'Чеснок Kotanyi измельчённый, 28г', 55.9, 5, 14, 5, 'img/catalog-img/chesnok.jpg'),
+(47, 'Паприка Маркет Перекрёсток сладкая молотая, 15г', 43.9, 1, 21, 5, 'img/catalog-img/paprika.jpg'),
+(48, 'Укроп Маркет Перекрёсток измельчённый, 7г', 43.9, 5, 6, 5, 'img/catalog-img/ukrop.jpg'),
+(49, 'Мука Makfa высшего сорта, 2кг', 114.9, 4, 21, 5, 'img/catalog-img/muka.jpg'),
+(50, 'Сода пищевая, 500г', 37.9, 5, 10, 5, 'img/catalog-img/soda.jpg'),
+(51, 'Салат Оливье, кг', 39.9, 4, 21, 6, 'img/catalog-img/oliview.jpg'),
+(52, 'Курица-гриль Перекрёсток по рецепту Перекрестка, кг', 474.6, 7, 3, 6, 'img/catalog-img/chicken-gril.jpg'),
+(53, 'Салат Крабовый, кг', 39.9, 2, 21, 6, 'img/catalog-img/kraboviy.jpg'),
+(54, 'Пончик Перекрёсток Donut с клубникой, 68г', 59.9, 5, 21, 6, 'img/catalog-img/donut.jpg'),
+(55, 'Индейка Натурбуфет с рисом и овощами 250г', 139.9, 7, 21, 6, 'img/catalog-img/indeyka.jpg'),
+(56, 'Вода Боржоми минеральная лечебно-столовая газированная, 500мл', 85.9, 7, 5, 6, 'img/catalog-img/barjomi.jpg'),
+(57, 'Вода Aqua Minerale питьевая негазированная, 0,5л', 39.9, 1, 21, 6, 'img/catalog-img/aqua.jpg'),
+(58, 'Паста Натурбуфет Карбонара 250г', 139.9, 8, 9, 6, 'img/catalog-img/karbonara.jpg'),
+(59, 'Суп Натурбуфет Солянка Домашняя 340г', 169.9, 3, 14, 6, 'img/catalog-img/solyanka.jpg'),
+(60, 'Сэндвич двойной с курицей и салатом, 200г', 129, 6, 21, 6, 'img/catalog-img/sandwich.jpg'),
+(61, 'Печенье Юбилейное молочное витаминизированное с глазурью, 116г', 45.9, 6, 3, 7, 'img/catalog-img/ubileynoe.jpg'),
+(62, 'Печенье Bonte Bakery малиновый десерт сдобное, 270г', 77.9, 8, 21, 7, 'img/catalog-img/bonte.jpg'),
+(63, 'Чипсы кукурузные Doritos Nacho Сливочный сыр, 100г', 93.9, 7, 3, 7, 'img/catalog-img/doritos.jpg'),
+(64, 'Чипсы Lay\'s Рифленые Сметана-Лук, 150г', 124.9, 3, 12, 7, 'img/catalog-img/lays.jpg'),
+(65, 'Кукурузные снеки Cheetos Сыр, 55г', 47.9, 7, 21, 7, 'img/catalog-img/cheetos.jpg'),
+(66, 'Шоколад молочный Milka, 85г', 129.9, 6, 2, 7, 'img/catalog-img/milk.jpg'),
+(67, 'Шоколад молочный Nesquik с молочной начинкой, 100г', 89.9, 4, 21, 7, 'img/catalog-img/nesquik.jpg'),
+(68, 'Батончик шоколадный Twix Экстра с печеньем, 82г', 65.9, 2, 3, 7, 'img/catalog-img/twix.jpg'),
+(69, 'Набор Nutella&GO! c хлебными палочками и ореховой пастой Nutella, 52г', 109.9, 6, 21, 7, 'img/catalog-img/nutella.jpg'),
+(70, 'Пирожное Kinder Maxi King орехи-карамель, 35г', 65.9, 1, 9, 7, 'img/catalog-img/kinder.jpg'),
+(71, 'Кофе Egoiste Velvet жареный в зёрнах, 200г', 469, 6, 21, 14, 'img/catalog-img/egoist.jpg'),
+(72, 'Чай Greenfield Spring Melody чёрный в пакетиках, 25х1.5г', 114.9, 7, 6, 14, 'img/catalog-img/spring-melody.jpg'),
+(73, 'Чай Азерчай Букет чёрный байховый крупнолистовой, 100г', 139.9, 4, 8, 14, 'img/catalog-img/azertea.jpg'),
+(74, 'Какао-напиток Nesquik быстрорастворимый обогащённый, 250г', 174.9, 6, 21, 14, 'img/catalog-img/nesquik-kakao.jpg'),
+(75, 'Горячий шоколад Elza, 325г', 539, 5, 13, 14, 'img/catalog-img/elza.jpg');
 
 -- --------------------------------------------------------
 
@@ -251,7 +291,6 @@ INSERT INTO `suppliers` (`supplier_id`, `supplier_name`, `supplier_address`) VAL
 CREATE TABLE `users` (
   `user_id` int NOT NULL,
   `name` varchar(40) NOT NULL,
-  `surname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `email` varchar(70) NOT NULL,
   `password` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -260,9 +299,10 @@ CREATE TABLE `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`user_id`, `name`, `surname`, `email`, `password`) VALUES
-(4, 'Алексей', 'Скочков', 'skochkov.aleksey@yandex.ru', '$2y$10$WEIV78yocV2DZFziz1CkEuHxpp1jfum3gIn48bL5Q4ny10sQq2Lsy'),
-(5, 'Юлия', 'Байкарова', 'ubaykarova@gmail.com', '$2y$10$bvdAA3BoH2kX0A/h4A0qYej2lsRM/65XdcgSdv78kgYhdpS4q/Y9a');
+INSERT INTO `users` (`user_id`, `name`, `email`, `password`) VALUES
+(4, 'Алексей', 'skochkov.aleksey@yandex.ru', '$2y$10$WEIV78yocV2DZFziz1CkEuHxpp1jfum3gIn48bL5Q4ny10sQq2Lsy'),
+(5, 'Юлия', 'ubaykarova@gmail.com', '$2y$10$bvdAA3BoH2kX0A/h4A0qYej2lsRM/65XdcgSdv78kgYhdpS4q/Y9a'),
+(6, 'Uliya', 'ubaykarova1@gmail.com', '$2y$10$H7rpii4TrkYM71QsMwRREeCfZiu.o.pibiujli2c4PzSsLUi9/o1K');
 
 --
 -- Индексы сохранённых таблиц
@@ -338,7 +378,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `cart_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 
 --
 -- AUTO_INCREMENT для таблицы `categories`
@@ -362,7 +402,7 @@ ALTER TABLE `limits`
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `product_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT для таблицы `purchases`
@@ -386,7 +426,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
