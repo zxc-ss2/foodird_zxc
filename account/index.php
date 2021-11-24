@@ -101,19 +101,23 @@ $user_info = $query_user_info -> fetchAll();
                         <div class="body-profile__subtitle title">
                             <h4>Основная информация</h4>
                         </div>
-                        <form class="main-form" action="../controllers/updateUserInfo.php" name="update-info-form" method="post">
+                        <div class="main-form" name="update-info-form" method="post">
                             <div class="main-form__name name-form">
-                                <!-- <label for="firstname" class="placeholder"><?php echo $user_info[0]['name']?></label> -->
+                                <label for="firstname" class="placeholder"><?php echo $user_info[0]['name']?></label>
                                 <input name="new-name" id="firstname" class="name-form__inp" placeholder=" " type="text">
                             </div>
 
                             <div class="main-form__email email-form">
-                                <!-- <label for="email" class="placeholder"><?php echo $user_info[0]['email']?></label> -->
+                                <label for="email" class="placeholder"><?php echo $user_info[0]['email']?></label>
                                 <input name="new-email" id="email" class="email-form__inp" placeholder=" " type="text">
                             </div>
 
-                            <button type="submit" class="btn save-btn save-btn-info">Сохранить изменения</button>
-                        </form>
+                            <a class="btn save-btn save-btn-info">Сохранить изменения</a>
+                        </div>
+                        <div class="success">
+                            <span>&#10004;</span>
+                            <p>Данные успешно обновлены</p>
+                        </div>
                         <div class="body-profile__subtitle title">
                             <h4>Сменить пароль</h4>
                         </div>
@@ -205,6 +209,7 @@ $user_info = $query_user_info -> fetchAll();
         <p>©2021. Официальный сайт сети "foodird"</p>
     </div>
 </footer>
+    <script src="js/updateInfo.js"></script>
     <script src="js/script.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>

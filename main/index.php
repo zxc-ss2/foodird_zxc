@@ -1,5 +1,11 @@
 <?php
 session_start();
+require_once "../db/connect.php";
+
+$sql_categories = "select * from categories";
+$query_categories = $pdo -> prepare($sql_categories);
+$query_categories -> execute();
+$categories = $query_categories -> fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +24,7 @@ session_start();
         <div class="header__container container">
             <div class="header__body">
                 <div class="header__main">
-                    <a class="logo" href="#">
+                    <a class="logo" href="index.php">
                         <img src="img/logo.png" alt="">
                         <img src="img/logo-text.png" alt="logo">
                     </a>
@@ -27,7 +33,7 @@ session_start();
                             <ul class="menu__list">
                                 <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Каталог</a></li>
+                                <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
                             </ul>
@@ -101,10 +107,7 @@ session_start();
         <section class="gallery">
     <div class="container">
         <div class="body-women__title title">
-            <h2>Категории товаров</h2>
-        </div>
-        <div class="body-women__subtitle subtitle">
-            <h3>Выберите интересующую категорию</h3>
+            <h2> Отзывы наших клиентов</h2>
         </div>
     </div>
     <div class="gallery__container">
@@ -112,60 +115,170 @@ session_start();
             <div class="gallery__items">
                 <div class="gallery__column _anim-item">
                     <div class="gallery__row row-gallery row-gallery__left-top">
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-1.jpg); width: 500px; height: 300px">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-1.jpg); width: 500px; min-height: 300px">
                             <!-- <img style="height: 300px; width: 500px;" src="img/gallery-1.jpg" alt=""> -->
-                            <div class="layer"></div>
                             <div class="responce">
-                                <div class="responce__photo">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/1.jpg) no-repeat;">
                                 </div>
                                 <div class="responce__name">
-                                    <h3>Макаров Амадей Юрьевич</h3>
+                                    <h3>Макаров Амадей</h3>
                                 </div>
                                 <div class="responce__text">
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
                                     </p>
                                 </div>
                             </div>
                         </a>
-                        <a href="" class="row-gallery__item">
-                            <img style="width: 500px; height: 340px;" src="img/gallery-2.jpg" alt="">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-2.jpg); width: 500px; min-height: 340px">
+                            <!-- <img style="width: 500px; height: 340px;" src="img/gallery-2.jpg" alt=""> -->
+                            <div class="responce">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/2.jpg) no-repeat;">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Львова Ольга</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                                    </p>
+                                </div>
+                            </div>
                         </a>
                     </div>
                     <div class="gallery__row row-gallery row-gallery__left-bottom">
-                        <a href="" class="row-gallery__item">
-                            <img style="height: 301px; width: 375px;" src="img/gallery-3.jpg" alt="">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-3.jpg); width: 375px; min-height: 300px">
+                            <!-- <img style="height: 301px; width: 375px;" src="img/gallery-3.jpg" alt=""> -->
+                            <div class="responce">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/3.jpg) no-repeat;">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Войтов Ювеналий</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                                    </p>
+                                </div>
+                            </div>
                         </a>
-                        <a href="" class="row-gallery__item">
-                            <img style="width: 450px; height: 245px;" src="img/gallery-4.jpg" alt="">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-4.jpg); width: 450px; min-height: 245px">
+                            <!-- <img style="width: 450px; height: 245px;" src="img/gallery-4.jpg" alt=""> -->
+                            <div class="responce">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/4.jpg) no-repeat;">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Андреев Владлен</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                                    </p>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
                 <div class="gallery__column _anim-item">
                     <div class="gallery__row row-gallery row-gallery__center">
-                        <a href="" class="row-gallery__item">
-                            <img style="width: 550px;" src="img/gallery-5.jpg" alt="">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-5.jpg); width: 550px;">
+                            <!-- <img style="width: 550px;" src="img/gallery-5.jpg" alt=""> -->
+                            <div class="responce">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/5.jpg) no-repeat;">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Круглов Евграф</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                                    </p>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
                 <div class="gallery__column _anim-item">
                     <div class="gallery__row row-gallery row-gallery__right-top">
-                        <a href="" class="row-gallery__item">
-                            <img style="width: 500px;" src="img/gallery-6.jpg" alt="">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-6.jpg); width: 375px; min-height: 300px">
+                            <!-- <img style="width: 500px;" src="img/gallery-6.jpg" alt=""> -->
+                            <div class="responce">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/6.jpg) no-repeat;">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Любимов Трофим</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                                    </p>
+                                </div>
+                            </div>
                         </a>
-                        <a href="../" class="row-gallery__item">
-                            <img style="height: 300px; width: 500px;" src="img/gallery-7.jpg" alt="">
+                        <a href="../" class="row-gallery__item" style="background: url(img/gallery-7.jpg); width: 500px; min-height: 300px">
+                            <!-- <img style="height: 300px; width: 500px;" src="img/gallery-7.jpg" alt=""> -->
+                            <div class="responce">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/7.jpg) no-repeat;">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Шахуро Михаил</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                                    </p>
+                                </div>
+                            </div>
                         </a>
                     </div>
                     <div class="gallery__row row-gallery row-gallery__right-bottom">
-                        <a href="" class="row-gallery__item">
-                            <img style="width: 450px;" src="img/gallery-8.jpg" alt="">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-8.jpg); width: 450px;">
+                            <!-- <img style="width: 450px;" src="img/gallery-8.jpg" alt=""> -->
+                            <div class="responce">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/8.jpg) no-repeat;">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Богатырева Амина</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                                    </p>
+                                </div>
+                            </div>
                         </a>
-                        <a href="" class="row-gallery__item">
-                            <img src="img/gallery-9.jpg" alt="">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-9.jpg);">
+                            <!-- <img src="img/gallery-9.jpg" alt=""> -->
+                            <div class="responce">
+                                <div class="responce__photo" style="background: center/cover url(img/responces/9.jpg) no-repeat;">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Алексеева Федосья</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                                    </p>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -197,7 +310,7 @@ session_start();
         </div>
     </div>
 </section>
-        <section class="advantages">
+<section class="advantages">
     <div class="container">
         <div class="advantages__title title">
             <h2>Наши преимущества</h2>
@@ -226,10 +339,10 @@ session_start();
     </div>
     </div>
 </section>
-        <section class="products">
+<section class="products">
     <div class="products__container container">
         <div class="products__title title">
-            <h2>Популярные товары за неделю</h2>
+            <h2>Часто покупаемы товары</h2>
         </div>
             <div class="products__items">
                 <article class="products__item item-product">
@@ -412,8 +525,36 @@ session_start();
         </div>
     </div>
 </section>
-    </main>
-    <footer class="footer">
+<section class="page search-bot">
+    <div class="page__container container">
+        <div class="page__wrapper">
+            <div class="page__body body-page">
+                <div class="body-page__content content-page">
+                    <div class="body-page__title title">
+                        <h2>Категории товаров</h2>
+                    </div>
+                    <div class="content-page__list list-page">
+                        <?php 
+                        foreach ($categories as $key) {
+                            echo '
+                                <div class="list-page__item item-page" style="background: right/contain url('. $key['category_img'] .') no-repeat">
+                                    <a href="../catalog/index.php?category_id='. $key['category_id'] .'" class="item-page__link">
+                                        <div class="item-page__wrapper">
+                                            <div class="item-page__content">'. $key['category_name'] .'</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            ';
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<footer class="footer">
     <div class="footer__wrapper">
         <div class="footer__container container">
             <div class="footer__body body-footer">

@@ -30,19 +30,32 @@ $popular_products = $query_products -> fetchAll();
     ]);
 
     $needed_product = $query_products -> fetchAll();
-    
+
+$category_from_main_sql = "select * from products inner join discounts on products.discount_id = discounts.discount_id inner join categories on products.category_id
+                = categories.category_id where products.category_id = :category ORDER BY rand()";
+$category_from_main_query = $pdo -> prepare($category_from_main_sql);
+$category_from_main_query -> execute([
+    'category' => $_GET['category_id']
+]);
+$category_from_main = $category_from_main_query -> fetchAll();
+
 $sql_categories = "select * from categories";
 $query_categories= $pdo -> prepare($sql_categories);
 $query_categories -> execute();
 $categories = $query_categories -> fetchAll();
 
 $random_category_sql = "select * from products inner join discounts on products.discount_id = discounts.discount_id inner join categories on products.category_id
-= categories.category_id where products.category_id = :category ORDER BY rand()";
+                        = categories.category_id where products.category_id = :category ORDER BY rand()";
 $random_category_query = $pdo -> prepare($random_category_sql);
 $random_category_query -> execute([
     'category' => rand(3,count($categories))
 ]);
 $random_category = $random_category_query -> fetchAll();
+
+if(isset($_GET['category_id'])) {
+    $random_category = array();
+}   
+
 
 ?>
 
@@ -115,8 +128,8 @@ $random_category = $random_category_query -> fetchAll();
         </div>
     </div>
 </header>
-    <main>
-        <section class="page search-bot">
+<main>
+<section class="page search-bot">
     <div class="page__container container">
         <div class="page__wrapper">
             <div class="page_title title">
@@ -163,6 +176,31 @@ $random_category = $random_category_query -> fetchAll();
                         </div>
                         <div class="content-page__items asdasd">
                             <?php
+                                foreach ($category_from_main as $key) {
+                                    echo '<article name="zxc" data-id='. $key['product_id'] .' class="content-page__item item-product">
+                                    <div class="item-product__labels">
+                                        <div class="item-product__label item-product__label_sale">-'. $key['discount_value'] .'%</div>
+                                        <div class="item-product__label item-product__label_cart _icon-cart"></div>
+                                    </div>
+                                    <a href="" class="item-product__image">
+                                        <img class="catalog-img" src="'.$key['product_path'].'" alt="">
+                                    </a>
+                                    <div class="item-product__body">
+                                        <div class="item-product__content">
+                                        <a href="../product/index.php?id='. $key['product_id'] .'&category='. $key['category_id'] .'"><h5 class="item-product__title">'. $key['product_name'] .'</h5></a>
+                                        </div>
+                                        <div class="item-product__prices">
+                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>
+                                            <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб./кг</div>
+                                        </div>
+                                        <div class="item-product__actions actions-product">
+                                            <div class="actions-product__body">
+                                                <a class="btn  actions-product__btn">Добавить</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>';
+                                }
 
                                 foreach ($random_category as $key) {
                                     echo '<article name="zxc" data-id='. $key['product_id'] .' class="content-page__item item-product">
@@ -229,7 +267,6 @@ $random_category = $random_category_query -> fetchAll();
                         </div>
                     </div>
                     </div>
-                    
                 </div>
             </div>
         </div>

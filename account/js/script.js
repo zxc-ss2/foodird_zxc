@@ -121,14 +121,15 @@ function updateUserInfo(){
         else{
             info.push(nameDefault);
         }
-        const surname = document.querySelector('.surname-form__inp').value;
-        const surnameDefault = document.querySelector('.surname-form__inp').getAttribute("placeholder");
-        if(surname !== ''){
-            info.push(surname);
-        }
-        else{
-            info.push(surnameDefault);
-        }
+
+        // const surname = document.querySelector('.surname-form__inp').value;
+        // const surnameDefault = document.querySelector('.surname-form__inp').getAttribute("placeholder");
+        // if(surname !== ''){
+        //     info.push(surname);
+        // }
+        // else{
+        //     info.push(surnameDefault);
+        // }
 
         const email = document.querySelector('.email-form__inp').value;
         const emailDefault = document.querySelector('.email-form__inp').getAttribute("placeholder");
@@ -154,7 +155,7 @@ function updateUserInfo(){
     })
 }
 
-saveBtn.addEventListener("click", updateUserInfo);
+// saveBtn.addEventListener("click", updateUserInfo);
 
 
 
