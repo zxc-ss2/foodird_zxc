@@ -7,8 +7,11 @@ $query_product -> execute([
     'id' => $_GET['id']
 ]);
 $product = $query_product -> fetchAll();
+echo $product[0]['product_path'];
 
-$sql_similar_products = "select * from products inner join categories on products.category_id = categories.category_id where products.category_id = :id";
+
+$sql_similar_products = "select * from products inner join categories on products.category_id = categories.category_id inner join discounts
+on products.discount_id = discounts.discount_id where products.category_id = :id";
 $query_similar_products = $pdo -> prepare($sql_similar_products);
 $query_similar_products -> execute([
     'id' => $_GET['category']
@@ -42,7 +45,7 @@ $similar_products = $query_similar_products -> fetchAll();
                             <ul class="menu__list">
                                 <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Каталог</a></li>
+                                <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
                             </ul>
@@ -62,6 +65,7 @@ $similar_products = $query_similar_products -> fetchAll();
                     <?php
                     if(isset($_SESSION['login'])){
                         echo '<a href="../controllers/logout.php" class="actions-header__item actions-header__item_favorites _icon-logout"></a>';
+
                     }
                     else{
                         echo '<a href="../reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
@@ -94,24 +98,24 @@ $similar_products = $query_similar_products -> fetchAll();
                     <div class="body-product__content content-product">
                         <div class="content-product__slider-for">
                             <div class="slider-for__item">
-                                <img src="<?php echo $similar_products[0]['prodct_path']?>" alt="">
+                                <img src="<?php echo $product[0]['product_path']?>" alt="">
                             </div>
                             <div class="slider-for__item">
-                                <img src="img/product2.jpg" alt="">
+                            <img src="<?php echo $product[0]['product_path']?>" alt="">
                             </div>
                             <div class="slider-for__item">
-                                <img src="img/product3.jpg" alt="">
+                            <img src="<?php echo $product[0]['product_path']?>" alt="">
                             </div>
                         </div>
                         <div class="content-product__slider-nav">
                             <div class="slider-nav__item">
-                                <img src="img/product1.jpg" alt="">
+                            <img src="<?php echo $product[0]['product_path']?>" alt="">
                             </div>
                             <div class="slider-nav__item">
-                                <img src="img/product2.jpg" alt="">
+                            <img src="<?php echo $product[0]['product_path']?>" alt="">
                             </div>
                             <div class="slider-nav__item">
-                                <img src="img/product3.jpg" alt="">
+                            <img src="<?php echo $product[0]['product_path']?>" alt="">
                             </div>
                         </div>
                     </div>
@@ -154,7 +158,7 @@ $similar_products = $query_similar_products -> fetchAll();
                             <div class="slider__item">
                                 <article class="products__item item-product" data-id='. $key['product_id'] .'>
                                     <div class="item-product__labels">
-                                        <div class="item-product__label item-product__label_sale">-'. $key['discount_id'] * 5 .'%</div>
+                                        <div class="item-product__label item-product__label_sale">-'. $key['discount_value'] .'%</div>
                                         <div class="item-product__label item-product__label_cart _icon-cart"></div>
                                     </div>
                                     <a href="" class="item-product__image">
@@ -165,7 +169,7 @@ $similar_products = $query_similar_products -> fetchAll();
                                             <h5 class="item-product__title">'. $key['product_name'] .'</h5>
                                         </div>
                                         <div class="item-product__prices">
-                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['product_price']/100,1) .'руб./кг</div>
+                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>
                                             <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб./кг</div>
                                         </div>
                                         <div class="item-product__actions actions-product">

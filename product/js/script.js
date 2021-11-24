@@ -249,7 +249,7 @@ $(document).ready(function ($) {
         focusOnSelect: true,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2100,
+        autoplaySpeed: 2100
     });
 
     $('.aslider').slick({

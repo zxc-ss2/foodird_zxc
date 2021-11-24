@@ -101,26 +101,18 @@ $user_info = $query_user_info -> fetchAll();
                         <div class="body-profile__subtitle title">
                             <h4>Основная информация</h4>
                         </div>
-                        <form class="main-form" name="update-info-form">
+                        <form class="main-form" action="../controllers/updateUserInfo.php" name="update-info-form" method="post">
                             <div class="main-form__name name-form">
-                                <label for="firstname" class="placeholder"><?php echo $user_info[0]['name']?></label>
-                                <div class="cut"></div>
-                                <input id="firstname" class="name-form__inp" placeholder=" " type="text">
-                            </div>
-
-                            <div class="main-form__surname surname-form">
-                                <label for="lastname" class="placeholder"><?php echo $user_info[0]['surname']?></label>
-                                <div class="cut"></div>
-                                <input id="lastname" class="surname-form__inp" placeholder=" " type="text">
+                                <!-- <label for="firstname" class="placeholder"><?php echo $user_info[0]['name']?></label> -->
+                                <input name="new-name" id="firstname" class="name-form__inp" placeholder=" " type="text">
                             </div>
 
                             <div class="main-form__email email-form">
-                                <label for="email" class="placeholder"><?php echo $user_info[0]['email']?></label>
-                                <div class="cut"></div>
-                                <input id="email" class="email-form__inp" placeholder=" " type="text">
+                                <!-- <label for="email" class="placeholder"><?php echo $user_info[0]['email']?></label> -->
+                                <input name="new-email" id="email" class="email-form__inp" placeholder=" " type="text">
                             </div>
 
-                            <button class="btn save-btn save-btn-info">Сохранить изменения</button>
+                            <button type="submit" class="btn save-btn save-btn-info">Сохранить изменения</button>
                         </form>
                         <div class="body-profile__subtitle title">
                             <h4>Сменить пароль</h4>

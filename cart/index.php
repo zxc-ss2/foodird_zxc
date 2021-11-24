@@ -33,14 +33,18 @@ $cart_categories_query = $pdo -> prepare($cart_categories_sql);
 $cart_categories_query -> execute();
 $cart_categories = $cart_categories_query -> fetchAll();
 
+print_r($cart_categories);
+
 $similar_slider_products = array();
 foreach ($cart_categories as $key) {
-    $similar_slider_products_sql = "select products.product_id, product_name, product_price, product_path, discount_id, category_id from products left outer join cart on products.product_id = cart.product_id where category_id = :id and cart.cart_id is null order by rand()";
+    $similar_slider_products_sql = "select products.product_id, product_name, product_price, product_path, products.discount_id, discount_value, category_id from products left outer join
+     cart on products.product_id = cart.product_id inner join discounts on products.discount_id = discounts.discount_id where category_id = :id and cart.cart_id is null order by rand()";
     $similar_cart_products_query = $pdo -> prepare($similar_slider_products_sql);
     $similar_cart_products_query -> execute([
         'id' => $key['category_id']
     ]);
     $similar_slider_products[] = $similar_cart_products_query -> fetchAll();
+    echo $key['category_id'];
 }
 
 ?>
@@ -190,7 +194,7 @@ foreach ($cart_categories as $key) {
                                     <div class="slider__item qwe">
                                         <article class="products__item item-product" data-id="'. $zxc[$product2]["product_id"] .'">
                                             <div class="item-product__labels">
-                                                <div class="item-product__label item-product__label_sale">-'. $zxc[$product2]["discount_id"] * 5 .'%</div>
+                                                <div class="item-product__label item-product__label_sale">-'. $zxc[$product2]["discount_value"] .'%</div>
                                             </div>
                                             <a href="" class="item-product__image">
                                                 <img class="catalog-img" src="'. $zxc[$product2]["product_path"] .'" alt="">
@@ -200,7 +204,7 @@ foreach ($cart_categories as $key) {
                                                     <h5 class="item-product__title">'. $zxc[$product2]["product_name"] .'</h5>
                                                 </div>
                                                 <div class="item-product__prices">
-                                                    <div class="item-product__price">'. round($zxc[$product2]["product_price"] - $zxc[$product2]["product_price"] * ($zxc[$product2]["discount_id"] * 5)/100,1) .'руб.</div>
+                                                    <div class="item-product__price">'. round($zxc[$product2]["product_price"] - $zxc[$product2]["product_price"] * $zxc[$product2]["discount_value"]/100,1) .'руб.</div>
                                                     <div class="item-product__price item-product__price_old">'. $zxc[$product2]["product_price"] .'руб.</div>
                                                 </div>
                                                 <div class="item-product__actions actions-product">

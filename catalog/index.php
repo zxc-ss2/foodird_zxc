@@ -163,6 +163,7 @@ $random_category = $random_category_query -> fetchAll();
                         </div>
                         <div class="content-page__items asdasd">
                             <?php
+
                                 foreach ($random_category as $key) {
                                     echo '<article name="zxc" data-id='. $key['product_id'] .' class="content-page__item item-product">
                                     <div class="item-product__labels">

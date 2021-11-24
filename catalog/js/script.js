@@ -37,6 +37,15 @@ window.onload = function () {
     }
 };
 
+const sliderItemsLabels = document.querySelectorAll('.item-product__label_sale');
+
+for (let i = 0; i < sliderItemsLabels.length; i++) {
+                                            
+    if(sliderItemsLabels[i].textContent == "-0%"){
+        sliderItemsLabels[i].style.display = "none";
+    }
+}
+
 const iconMenu = document.querySelector('.menu__btn');
 if (iconMenu) {
     const menuBody = document.querySelector('.menu__body');

@@ -33,7 +33,7 @@ for (let i = 0; i < asidePageItem.length; i++) {
                         const productTemplate = `
                             <article name="zxc" data-id=${Object.values(result)[i]['product_id']} class="content-page__item item-product">
                                 <div class="item-product__labels">
-                                    <div class="item-product__label item-product__label_sale">-${Object.values(result)[i]['discount_id'] * 5}%</div>
+                                    <div class="item-product__label item-product__label_sale">-${Object.values(result)[i]['discount_value']}%</div>
                                     <div class="item-product__label item-product__label_cart _icon-cart"></div>
                                 </div>
                                 <a href="" class="item-product__image">
@@ -41,10 +41,10 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                 </a>
                                 <div class="item-product__body">
                                     <div class="item-product__content">
-                                    <a href="../product/index.php?id=${Object.values(result)[i]['product_id']}"><h5 class="item-product__title">${Object.values(result)[i]['product_name']}</h5></a>
+                                    <a href="../product/index.php?id=${Object.values(result)[i]['product_id']}&category=${Object.values(result)[i]['category_id']}"><h5 class="item-product__title">${Object.values(result)[i]['product_name']}</h5></a>
                                     </div>
                                     <div class="item-product__prices">
-                                        <div class="item-product__price">${(Object.values(result)[i]['product_price'] - Object.values(result)[i]['product_price'] * (Object.values(result)[i]['discount_id'] * 5)/100).toFixed(1)} руб./кг</div>
+                                        <div class="item-product__price">${(Object.values(result)[i]['product_price'] - Object.values(result)[i]['product_price'] * (Object.values(result)[i]['discount_value'])/100).toFixed(1)} руб./кг</div>
                                         <div class="item-product__price item-product__price_old">${Object.values(result)[i]['product_price']}руб./кг</div>
                                     </div>
                                     <div class="item-product__actions actions-product">
@@ -101,14 +101,20 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                 let xmlHttp2 = new XMLHttpRequest();
                                 xmlHttp2.open("post", "../controllers/getCartId.php"); 
 
+                                const sliderItemsLabels = document.querySelectorAll('.item-product__label_sale');
+
                                 xmlHttp2.onreadystatechange = function()
                                     {
                                         if(xmlHttp2.readyState == 4 && xmlHttp2.status == 200)
                                         {
-                                            // for (let i = 0; i < this.responseText.length; i++) {
-                                            //     const element = array[i];
-                                                
-                                            // }
+                                           
+                                            for (let i = 0; i < sliderItemsLabels.length; i++) {
+                                            
+                                                    if(sliderItemsLabels[i].textContent == "-0%"){
+                                                        sliderItemsLabels[i].style.display = "none";
+                                                    }
+                                            }
+
                                             result = JSON.parse(xmlHttp2.responseText);
                                             for (let i = 0; i < result.length; i++) {
                                                 consistProducts.push(Object.values(result)[i]['product_id']);
@@ -196,8 +202,11 @@ for (let i = 0; i < asidePageItem.length; i++) {
 
                 }
             }
+            
+
             xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xmlHttp.send("id=" + JSON.stringify(categoryId)); 
         })
     })
 }
+

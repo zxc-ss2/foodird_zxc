@@ -293,6 +293,7 @@ for (let i = 0; i < removeBtns.length; i++) {
         const cxv = cartItems[i];
         const returnText = document.querySelector('.return__text');
         const returnTime = document.querySelector('.return__time');
+        const returnTime = document.querySelector('.return__delete');
         returnTime.style.display = "flex";
         const backProduct = `<a class="back-to-cart">Вернуть</a>`;
         returnText.insertAdjacentHTML('afterbegin', backProduct);

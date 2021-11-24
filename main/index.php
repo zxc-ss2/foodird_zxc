@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 
@@ -112,8 +112,24 @@ session_start();
             <div class="gallery__items">
                 <div class="gallery__column _anim-item">
                     <div class="gallery__row row-gallery row-gallery__left-top">
-                        <a href="" class="row-gallery__item ">
-                            <img style="height: 300px; width: 500px;" src="img/gallery-1.jpg" alt="">
+                        <a href="" class="row-gallery__item" style="background: url(img/gallery-1.jpg); width: 500px; height: 300px">
+                            <!-- <img style="height: 300px; width: 500px;" src="img/gallery-1.jpg" alt=""> -->
+                            <div class="layer"></div>
+                            <div class="responce">
+                                <div class="responce__photo">
+                                </div>
+                                <div class="responce__name">
+                                    <h3>Макаров Амадей Юрьевич</h3>
+                                </div>
+                                <div class="responce__text">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </div>
                         </a>
                         <a href="" class="row-gallery__item">
                             <img style="width: 500px; height: 340px;" src="img/gallery-2.jpg" alt="">
@@ -140,7 +156,7 @@ session_start();
                         <a href="" class="row-gallery__item">
                             <img style="width: 500px;" src="img/gallery-6.jpg" alt="">
                         </a>
-                        <a href="" class="row-gallery__item">
+                        <a href="../" class="row-gallery__item">
                             <img style="height: 300px; width: 500px;" src="img/gallery-7.jpg" alt="">
                         </a>
                     </div>
