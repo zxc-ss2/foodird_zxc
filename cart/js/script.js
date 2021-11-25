@@ -293,8 +293,9 @@ for (let i = 0; i < removeBtns.length; i++) {
         const cxv = cartItems[i];
         const returnText = document.querySelector('.return__text');
         const returnTime = document.querySelector('.return__time');
-        const returnTime = document.querySelector('.return__delete');
+        const returnDelete = document.querySelector('.return__delete');
         returnTime.style.display = "flex";
+        returnDelete.style.display = "block";
         const backProduct = `<a class="back-to-cart">Вернуть</a>`;
         returnText.insertAdjacentHTML('afterbegin', backProduct);
         const backToCart = document.querySelector('.back-to-cart');
@@ -305,6 +306,8 @@ for (let i = 0; i < removeBtns.length; i++) {
         backToCart.addEventListener("click", () => {
             cxv.style.display = "flex";
             backToCart.parentNode.removeChild(backToCart);
+            returnDelete.style.display = "none";
+            returnTime.style.display = "none";
             removeData = 0;
         })
         removeData = cartItems[i].dataset.id;
@@ -349,6 +352,5 @@ for (let i = 0; i < sliderItemsLabels.length; i++) {
         sliderItemsLabels[i].style.display = "none";
     }
 }
-
 
 

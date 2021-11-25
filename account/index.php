@@ -26,7 +26,7 @@ $user_info = $query_user_info -> fetchAll();
         <div class="header__container container">
             <div class="header__body">
                 <div class="header__main">
-                    <a class="logo" href="#">
+                    <a class="logo" href="../main/index.php">
                         <img src="img/logo.png" alt="">
                         <img src="img/logo-text.png" alt="logo">
                     </a>
@@ -89,7 +89,6 @@ $user_info = $query_user_info -> fetchAll();
                         <ul>
                             <li class="menu-profile__item"><a href="#" class="menu-profile__link">Мои заказы</a></li>
                             <li class="menu-profile__item"><a href="#" class="menu-profile__link">Профиль</a></li>
-                            <li class="menu-profile__item"><a href="#" class="menu-profile__link">Мои бонусы</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -114,26 +113,34 @@ $user_info = $query_user_info -> fetchAll();
 
                             <a class="btn save-btn save-btn-info">Сохранить изменения</a>
                         </div>
-                        <div class="success">
+                        <div class="check success">
                             <span>&#10004;</span>
-                            <p>Данные успешно обновлены</p>
+                            <p>Данные успешно обновлены, вы будете перенаправлены на страницу авторизации через <span class="timer">5</span> секунд</p>
+                        </div>
+                        <div class="check fail">
+                            <span>&#10006;</span>
+                            <p class="fail-content"></p>
                         </div>
                         <div class="body-profile__subtitle title">
                             <h4>Сменить пароль</h4>
                         </div>
-                        <form class="password-form" action="">
+                        <div class="password-form" action="">
                             <div class="password-form__old">
                                 <label for="">Новый пароль</label>
-                                <input type="text">
+                                <input class="new__pass" type="text">
                             </div>
 
                             <div class="password-form__new">
                                 <label for="">Повторите пароль</label>
-                                <input type="text">
+                                <input class="conf-new__pass" type="text">
                             </div>
 
-                            <button class="btn save-btn save-btn-pass">Сохранить изменения</button>
-                        </form>
+                            <a class="btn save-btn save-btn-pass">Сохранить изменения</a>
+                        </div>
+                        <div class="check fail">
+                            <span>&#10006;</span>
+                            <p class="fail-content"></p>
+                        </div>
                     </div>
                 </div>
             </div>

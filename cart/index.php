@@ -28,12 +28,12 @@ foreach ($id as $key) {
     $cart_products[] = $query_cart_products -> fetchAll();
 }
 
-$cart_categories_sql = "select category_id from products inner join cart on products.product_id = cart.product_id where products.product_id = cart.product_id group by(category_id)";
+$cart_categories_sql = "select category_id from products inner join cart on products.product_id = cart.product_id where products.product_id = cart.product_id  and cart.email = :login group by(category_id)";
 $cart_categories_query = $pdo -> prepare($cart_categories_sql);
-$cart_categories_query -> execute();
+$cart_categories_query -> execute([
+    'login' => $_SESSION['login']
+]);
 $cart_categories = $cart_categories_query -> fetchAll();
-
-print_r($cart_categories);
 
 $similar_slider_products = array();
 foreach ($cart_categories as $key) {
@@ -44,7 +44,7 @@ foreach ($cart_categories as $key) {
         'id' => $key['category_id']
     ]);
     $similar_slider_products[] = $similar_cart_products_query -> fetchAll();
-    echo $key['category_id'];
+    echo $_SESSION['login'];
 }
 
 ?>
@@ -70,7 +70,7 @@ foreach ($cart_categories as $key) {
         <div class="header__container container">
             <div class="header__body">
                 <div class="header__main">
-                    <a class="logo" href="#">
+                    <a class="logo" href="../main/index.php">
                         <img src="img/logo.png" alt="">
                         <img src="img/logo-text.png" alt="logo">
                     </a>
@@ -292,10 +292,8 @@ foreach ($cart_categories as $key) {
         <p>©2021. Официальный сайт сети "foodird"</p>
     </div>
 </footer>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <script src="js/jquery.js"></script>
+    <script src="js/slider.js"></script>
     <script src="js/script.js"></script>
 
 </body>
-
 </html>

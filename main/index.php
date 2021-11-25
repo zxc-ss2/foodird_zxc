@@ -6,6 +6,12 @@ $sql_categories = "select * from categories";
 $query_categories = $pdo -> prepare($sql_categories);
 $query_categories -> execute();
 $categories = $query_categories -> fetchAll();
+
+$purchases_products_sql = "select * from products inner join purchases on products.product_id = purchases.product_id inner join discounts 
+    on products.discount_id = discounts.discount_id";
+$purchases_products_query = $pdo -> prepare($purchases_products_sql);
+$purchases_products_query -> execute();
+$purchases_products = $purchases_products_query -> fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +121,7 @@ $categories = $query_categories -> fetchAll();
             <div class="gallery__items">
                 <div class="gallery__column _anim-item">
                     <div class="gallery__row row-gallery row-gallery__left-top">
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-1.jpg); width: 500px; min-height: 300px">
+                        <a href="" class="row-gallery__item" style="background: #e1f6f9; width: 500px; min-height: 300px">
                             <!-- <img style="height: 300px; width: 500px;" src="img/gallery-1.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/1.jpg) no-repeat;">
@@ -132,7 +138,7 @@ $categories = $query_categories -> fetchAll();
                                 </div>
                             </div>
                         </a>
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-2.jpg); width: 500px; min-height: 340px">
+                        <a href="" class="row-gallery__item" style="background:#edf5d6; width: 500px; min-height: 340px">
                             <!-- <img style="width: 500px; height: 340px;" src="img/gallery-2.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/2.jpg) no-repeat;">
@@ -151,7 +157,7 @@ $categories = $query_categories -> fetchAll();
                         </a>
                     </div>
                     <div class="gallery__row row-gallery row-gallery__left-bottom">
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-3.jpg); width: 375px; min-height: 300px">
+                        <a href="" class="row-gallery__item" style="background: #fef6eb; width: 375px; min-height: 300px">
                             <!-- <img style="height: 301px; width: 375px;" src="img/gallery-3.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/3.jpg) no-repeat;">
@@ -168,7 +174,7 @@ $categories = $query_categories -> fetchAll();
                                 </div>
                             </div>
                         </a>
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-4.jpg); width: 450px; min-height: 245px">
+                        <a href="" class="row-gallery__item" style="background: #faecfa; width: 450px; min-height: 245px">
                             <!-- <img style="width: 450px; height: 245px;" src="img/gallery-4.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/4.jpg) no-repeat;">
@@ -189,7 +195,7 @@ $categories = $query_categories -> fetchAll();
                 </div>
                 <div class="gallery__column _anim-item">
                     <div class="gallery__row row-gallery row-gallery__center">
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-5.jpg); width: 550px;">
+                        <a href="" class="row-gallery__item" style="background: #ffe8db; width: 550px;">
                             <!-- <img style="width: 550px;" src="img/gallery-5.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/5.jpg) no-repeat;">
@@ -210,7 +216,7 @@ $categories = $query_categories -> fetchAll();
                 </div>
                 <div class="gallery__column _anim-item">
                     <div class="gallery__row row-gallery row-gallery__right-top">
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-6.jpg); width: 375px; min-height: 300px">
+                        <a href="" class="row-gallery__item" style="background: #dfebfd; width: 375px; min-height: 300px">
                             <!-- <img style="width: 500px;" src="img/gallery-6.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/6.jpg) no-repeat;">
@@ -227,7 +233,7 @@ $categories = $query_categories -> fetchAll();
                                 </div>
                             </div>
                         </a>
-                        <a href="../" class="row-gallery__item" style="background: url(img/gallery-7.jpg); width: 500px; min-height: 300px">
+                        <a href="../" class="row-gallery__item" style="background: #dcf8ec; width: 500px; min-height: 300px">
                             <!-- <img style="height: 300px; width: 500px;" src="img/gallery-7.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/7.jpg) no-repeat;">
@@ -246,7 +252,7 @@ $categories = $query_categories -> fetchAll();
                         </a>
                     </div>
                     <div class="gallery__row row-gallery row-gallery__right-bottom">
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-8.jpg); width: 450px;">
+                        <a href="" class="row-gallery__item" style="background: #faecfa; width: 450px;">
                             <!-- <img style="width: 450px;" src="img/gallery-8.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/8.jpg) no-repeat;">
@@ -263,7 +269,7 @@ $categories = $query_categories -> fetchAll();
                                 </div>
                             </div>
                         </a>
-                        <a href="" class="row-gallery__item" style="background: url(img/gallery-9.jpg);">
+                        <a href="" class="row-gallery__item" style="background: #fce2e2;">
                             <!-- <img src="img/gallery-9.jpg" alt=""> -->
                             <div class="responce">
                                 <div class="responce__photo" style="background: center/cover url(img/responces/9.jpg) no-repeat;">
@@ -345,182 +351,34 @@ $categories = $query_categories -> fetchAll();
             <h2>Часто покупаемы товары</h2>
         </div>
             <div class="products__items">
-                <article class="products__item item-product">
-                    <div class="item-product__labels">
-                        <div class="item-product__label item-product__label_sale">-40%</div>
-                    </div>
-                    <a href="" class="item-product__image">
-                        <img src="img/banana.jpg" alt="">
-                    </a>
-                    <div class="item-product__body">
-                        <div class="item-product__content">
-                            <h5 class="item-product__title">Банан Эквадор вес</h5>
+            <?php
+                foreach ($purchases_products as $key) {
+                    echo '
+                    <article name="zxc" data-id='. $key['product_id'] .' class="content-page__item item-product">
+                        <div class="item-product__labels">
+                            <div class="item-product__label item-product__label_sale">-'. $key['discount_value'] .'%</div>
+                            <div class="item-product__label item-product__label_cart _icon-cart"></div>
                         </div>
-                        <div class="item-product__prices">
-                            <div class="item-product__price">91 руб./кг</div>
-                            <div class="item-product__price item-product__price_old">108 руб./кг</div>
-                        </div>
-                        <div class="item-product__actions actions-product">
-                            <div class="actions-product__body">
-                                <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
+                        <a href="" class="item-product__image">
+                            <img class="catalog-img" src="'.$key['product_path'].'" alt="">
+                        </a>
+                        <div class="item-product__body">
+                            <div class="item-product__content">
+                            <a href="../product/index.php?id='. $key['product_id'] .'&category='. $key['category_id'] .'"><h5 class="item-product__title">'. $key['product_name'] .'</h5></a>
+                            </div>
+                            <div class="item-product__prices">
+                                <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>
+                                <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб./кг</div>
+                            </div>
+                            <div class="item-product__actions actions-product">
+                                <div class="actions-product__body">
+                                    <a class="btn  actions-product__btn">Добавить</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </article>
-                <article class="products__item item-product">
-                    <div class="item-product__labels">
-                        <div class="item-product__label item-product__label_sale">-40%</div>
-                    </div>
-                    <a href="" class="item-product__image">
-                        <img src="img/tomato.png" alt="">
-                    </a>
-                    <div class="item-product__body">
-                        <div class="item-product__content">
-                            <h5 class="item-product__title">Томаты вес</h5>
-                        </div>
-                        <div class="item-product__prices">
-                            <div class="item-product__price">239 руб./кг</div>
-                            <div class="item-product__price item-product__price_old">260 руб./кг</div>
-                        </div>
-                        <div class="item-product__actions actions-product">
-                            <div class="actions-product__body">
-                                <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="products__item item-product">
-                    <div class="item-product__labels">
-                        <div class="item-product__label item-product__label_sale">-40%</div>
-                    </div>
-                    <a href="" class="item-product__image">
-                        <img src="img/cabbage.png" alt="">
-                    </a>
-                    <div class="item-product__body">
-                        <div class="item-product__content">
-                            <h5 class="item-product__title">Капуста белокочанная 1,5-3кг</h5>
-                        </div>
-                        <div class="item-product__prices">
-                            <div class="item-product__price">46 руб./кг</div>
-                            <div class="item-product__price item-product__price_old">59 руб./кг</div>
-                        </div>
-                        <div class="item-product__actions actions-product">
-                            <div class="actions-product__body">
-                                <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="products__item item-product">
-                    <div class="item-product__labels">
-                        <div class="item-product__label item-product__label_sale">-40%</div>
-                    </div>
-                    <a href="" class="item-product__image">
-                        <img src="img/carrot.png" alt="">
-                    </a>
-                    <div class="item-product__body">
-                        <div class="item-product__content">
-                            <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                        </div>
-                        <div class="item-product__prices">
-                            <div class="item-product__price">63 руб./кг</div>
-                            <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                        </div>
-                        <div class="item-product__actions actions-product">
-                            <div class="actions-product__body">
-                                <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="products__item item-product">
-                    <div class="item-product__labels">
-                        <div class="item-product__label item-product__label_sale">-40%</div>
-                    </div>
-                    <a href="" class="item-product__image">
-                        <img src="img/banana.jpg" alt="">
-                    </a>
-                    <div class="item-product__body">
-                        <div class="item-product__content">
-                            <h5 class="item-product__title">Банан Эквадор вес</h5>
-                        </div>
-                        <div class="item-product__prices">
-                            <div class="item-product__price">91 руб./кг</div>
-                            <div class="item-product__price item-product__price_old">108 руб./кг</div>
-                        </div>
-                        <div class="item-product__actions actions-product">
-                            <div class="actions-product__body">
-                                <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="products__item item-product">
-                    <div class="item-product__labels">
-                        <div class="item-product__label item-product__label_sale">-40%</div>
-                    </div>
-                    <a href="" class="item-product__image">
-                        <img src="img/tomato.png" alt="">
-                    </a>
-                    <div class="item-product__body">
-                        <div class="item-product__content">
-                            <h5 class="item-product__title">Томаты вес</h5>
-                        </div>
-                        <div class="item-product__prices">
-                            <div class="item-product__price">239 руб./кг</div>
-                            <div class="item-product__price item-product__price_old">260 руб./кг</div>
-                        </div>
-                        <div class="item-product__actions actions-product">
-                            <div class="actions-product__body">
-                                <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="products__item item-product">
-                    <div class="item-product__labels">
-                        <div class="item-product__label item-product__label_sale">-40%</div>
-                    </div>
-                    <a href="" class="item-product__image">
-                        <img src="img/cabbage.png" alt="">
-                    </a>
-                    <div class="item-product__body">
-                        <div class="item-product__content">
-                            <h5 class="item-product__title">Капуста белокочанная 1,5-3кг</h5>
-                        </div>
-                        <div class="item-product__prices">
-                            <div class="item-product__price">46 руб./кг</div>
-                            <div class="item-product__price item-product__price_old">59 руб./кг</div>
-                        </div>
-                        <div class="item-product__actions actions-product">
-                            <div class="actions-product__body">
-                                <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="products__item item-product">
-                    <div class="item-product__labels">
-                        <div class="item-product__label item-product__label_sale">-40%</div>
-                    </div>
-                    <a href="" class="item-product__image">
-                        <img src="img/carrot.png" alt="">
-                    </a>
-                    <div class="item-product__body">
-                        <div class="item-product__content">
-                            <h5 class="item-product__title">Морковь мытая 1кг</h5>
-                        </div>
-                        <div class="item-product__prices">
-                            <div class="item-product__price">63 руб./кг</div>
-                            <div class="item-product__price item-product__price_old">72 руб./кг</div>
-                        </div>
-                        <div class="item-product__actions actions-product">
-                            <div class="actions-product__body">
-                                <a href="" class="btn  actions-product__btn">Добавить в корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>';
+                }
+            ?>
             </div>
         </div>
     </div>

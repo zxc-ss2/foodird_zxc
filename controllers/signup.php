@@ -18,7 +18,9 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['pass']) && i
         );
         $users = $query ->fetchAll(PDO::FETCH_ASSOC);
 
+
         if(empty($users)){
+
             $sql = "insert into users(name, email, password) values(:name, :email, :password)";
             $query = $pdo -> prepare($sql);
             $query -> execute(array(

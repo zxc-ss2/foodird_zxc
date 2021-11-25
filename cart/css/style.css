@@ -1047,6 +1047,7 @@ body {
 .return__delete{
   cursor: pointer;
   font-weight: 600;
+  display: none;
 }
 
 .return__text{
