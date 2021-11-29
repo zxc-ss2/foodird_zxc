@@ -38,10 +38,9 @@ $purchases_products = $purchases_products_query -> fetchAll();
                         <nav class="menu__body">
                             <ul class="menu__list">
                                 <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
+                                <li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -82,9 +81,13 @@ $purchases_products = $purchases_products_query -> fetchAll();
             </div>
         </div>
     </div>
+    <div class="search-window">
+        <div class="search-window__content">
+        </div>
+    </div>
 </header>
     <main>
-        <section class="banner">
+        <section class="banner search-bot">
     <div class="banner__wrapper">
         <div class="banner__container">
             <div class="banner__body">
@@ -316,39 +319,10 @@ $purchases_products = $purchases_products_query -> fetchAll();
         </div>
     </div>
 </section>
-<section class="advantages">
-    <div class="container">
-        <div class="advantages__title title">
-            <h2>Наши преимущества</h2>
-    </div>
-    <div class="advantages__container">
-        <div class="slide">
-            <h3 class="slide__icon _icon-grow"></h3>
-            <h5 class="slide__title">Гарантия свежести продуктов</h5>
-            <p class="slide__text">Выбираем фреш не позднее половины срока годности. Привезли позже - дадим бонус</p>
-        </div>
-        <div class="slide">
-            <h3 class="slide__icon _icon-delivery"></h3>
-            <h5 class="slide__title">Бесплатная доставка за 2 часа</h5>
-            <p class="slide__text">Продукты уже через два часа у тебя дома, привезем заказ совершенно бесплатно!</p>
-        </div>
-        <div class="slide">
-            <h3 class="slide__icon _icon-snowflake"></h3>
-            <h5 class="slide__title">Перевозка в термобоксах</h5>
-            <p class="slide__text">Мороженое не растает (мясо не потечет) доставляем в автохолодильниках (термоконтейнерах)</p>
-        </div>
-        <div class="slide">
-            <h3 class="slide__icon _ _icon-apple"></h3>
-            <h5 class="slide__title">Лучшие фрукты/овощи</h5>
-            <p class="slide__text">Не понравился наш выбор, не плати, отдай курьеру!</p>
-        </div>
-    </div>
-    </div>
-</section>
 <section class="products">
     <div class="products__container container">
         <div class="products__title title">
-            <h2>Часто покупаемы товары</h2>
+            <h2>Часто покупаемые товары</h2>
         </div>
             <div class="products__items">
             <?php
@@ -481,6 +455,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
     </div>
 </footer>
     <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
 </body>

@@ -11,7 +11,6 @@
     ]);
 
     $needed_product = $query_products -> fetchAll();
-    echo json_encode(count($needed_product));
     
     if(empty($needed_product)){
         $sql = "insert into cart(product_id, email) values(:id, :us_id)";

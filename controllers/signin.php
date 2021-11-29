@@ -27,10 +27,7 @@ if(isset($_POST['username']) && isset($_POST['pass'])){
             $_SESSION['login'] = $login;
             $_SESSION['role'] = $result[0]['role'];
             header("Location: ../cart/index.php");
-        }
-        else{
-            echo "123";
-        }
+        }   
     }
 }
 ?>

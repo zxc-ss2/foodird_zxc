@@ -74,7 +74,7 @@ saveInfo.addEventListener("click", () => {
                             startTimer(5,timer);
     
                             setTimeout(function () {
-                                location = "http://localhost/foodird_zxc/reglog/log.php";
+                                location = "http://localhost/project/reglog/log.php";
                             }, 6000);
                         }
                     }
@@ -87,17 +87,17 @@ saveInfo.addEventListener("click", () => {
 
 
 savePass.addEventListener("click", () => {
-    const failWindow = document.querySelector('.fail');
+    const failWindow = document.querySelectorAll('.fail')[1];
 
-    if(document.querySelector('.new__pass').value === ""){
-        let failContent = document.querySelector('.fail-content');
+    if(document.querySelector('.new__pass').value === "" && document.querySelector('.conf-new__pass').value === ""){
+        let failContent = document.querySelectorAll('.fail-content')[1];
         failContent.textContent = "Значения не могут быть пустыми";
         failWindow.style.opacity = "1";
         failWindow.style.visibility = "visible";
     }
 
-    if(document.querySelector('.new__pass').value != document.querySelector('.conf-new__pass').value){
-        let failContent = document.querySelector('.fail-content');
+    else if(document.querySelector('.new__pass').value != document.querySelector('.conf-new__pass').value){
+        let failContent = document.querySelectorAll('.fail-content')[1];
         failContent.textContent = "Пароли не сходятся";
         failWindow.style.opacity = "1";
         failWindow.style.visibility = "visible";
@@ -117,12 +117,12 @@ savePass.addEventListener("click", () => {
                     if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
                     {
                         data = [];
-                        const successWindow = document.querySelector('.success');
+                        const successWindow = document.querySelectorAll('.success')[1];
                         successWindow.style.opacity = "1";
                         successWindow.style.visibility = "visible";
     
                         setTimeout(function () {
-                            location = "http://localhost/foodird_zxc/reglog/log.php";
+                            location = "http://localhost/project/reglog/log.php";
                         }, 5000);
                     }
                 }

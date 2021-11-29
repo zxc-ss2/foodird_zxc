@@ -758,6 +758,47 @@ hr {
   font-size: 0;
 }
 
+.search-bot{
+  transition: all 0.3s ease 0s;
+}
+
+.search-window {
+  position: absolute;
+  top: -440px; left: 140px;
+  background: #fff;
+  padding: 20px;
+  transition: all 0.3s ease 0s;
+  min-width: 1000px;
+  z-index: 2000;
+}
+
+.item-window {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.item-window__img img{
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.info-window {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  align-items: center;
+}
+.info-window__name {
+  font-size: 16px;
+  font-weight: 700;
+}
+.info-window__price {
+  font-size: 18px;
+  font-weight: 700;
+}
+
 /* Конкрутный слайдер */
 
 .slider {
@@ -988,26 +1029,6 @@ hr {
   line-height: 128.57143%;
   -webkit-animation: blink 2400ms alternate infinite;
           animation: blink 2400ms alternate infinite;
-}
-
-@-webkit-keyframes blink {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes blink {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
 }
 
 .wrapper__text h4 {

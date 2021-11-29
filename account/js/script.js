@@ -44,20 +44,19 @@ window.onload = function () {
             document.querySelector('.search-form').classList.toggle('_active');
         }
         else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
+            const itemWindow = document.querySelector('.item-window');
             document.querySelector('.search-form').classList.remove('_active');
+            searchWindow.style.top = "-440px";
+            windowContent.innerHTML = "";
+            itemWindow.parentNode.removeChild(itemWindow);
         }
 
         if (document.querySelector('.search-form._active')) {
-            offer.style = "padding-top: 160px";
+            offer.style = "margin-top: 160px";
         }
         else {
-            offer.style = "padding-top: 80px";
-        }
-
-        if (targetElement.classList.contains('products-more')) {
-            getProducts(targetElement);
-            e.preventDefault();
-        }
+            offer.style = "margin-top: 100px";
+        } 
     }
 
 

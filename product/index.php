@@ -44,10 +44,9 @@ $similar_products = $query_similar_products -> fetchAll();
                         <nav class="menu__body">
                             <ul class="menu__list">
                                 <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
+                                <li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -89,6 +88,10 @@ $similar_products = $query_similar_products -> fetchAll();
             </div>
         </div>
     </div>
+    <div class="search-window">
+        <div class="search-window__content">
+        </div>
+    </div>
 </header>
     <main>
         <section class="product search-bot">
@@ -106,8 +109,14 @@ $similar_products = $query_similar_products -> fetchAll();
                             <div class="slider-for__item">
                             <img src="<?php echo $product[0]['product_path']?>" alt="">
                             </div>
+                            <div class="slider-nav__item">
+                            <img src="<?php echo $product[0]['product_path']?>" alt="">
+                            </div>
                         </div>
                         <div class="content-product__slider-nav">
+                            <div class="slider-nav__item">
+                            <img src="<?php echo $product[0]['product_path']?>" alt="">
+                            </div>
                             <div class="slider-nav__item">
                             <img src="<?php echo $product[0]['product_path']?>" alt="">
                             </div>
@@ -126,7 +135,6 @@ $similar_products = $query_similar_products -> fetchAll();
                         <div class="body-product__main main-product">
                             <div class="main-product__add add-product">
                                 <div class="add-product__price"><?php echo $product[0]['product_price'];?>руб./кг</div>
-                                <a href="#" class="add-product__btn btn">В корзину</a>
                             </div>
                             <div class="main-product__way way-product">
                                 <div class="way-product__delivery">
@@ -257,8 +265,7 @@ $similar_products = $query_similar_products -> fetchAll();
     </div>
 </footer>
     <script src="js/script.js"></script>
-    
-
+    <script src="js/search.js"></script>
 </body>
 
 </html>

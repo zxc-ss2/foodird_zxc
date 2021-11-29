@@ -414,6 +414,29 @@ hr {
   margin-top: 27px;
 }
 
+.cart-empty {
+  display: flex;
+  align-items: center;
+}
+
+.cart-empty__image {
+}
+
+.cart-empty__text{
+  margin-left: 40px;
+}
+
+.cart-empty__text h4{
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.cart-empty__text a{
+  margin-top: 20px;
+  background: #f2f8fc;
+  border-radius: 7px;
+}
+
 .shop-menu__item:not(:first-child) {
   margin-top: 18px;
 }

@@ -18,6 +18,8 @@ function loadProducts(data) {
 window.onload = function () {
     document.addEventListener("click", documentActions);
     const offer = document.querySelector('.search-bot');
+    const searchWindow = document.querySelector('.search-window');
+    const windowContent = document.querySelector('.search-window__content');
 
     function documentActions(e) {
         const targetElement = e.target;
@@ -25,7 +27,11 @@ window.onload = function () {
             document.querySelector('.search-form').classList.toggle('_active');
         }
         else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
+            const itemWindow = document.querySelector('.item-window');
             document.querySelector('.search-form').classList.remove('_active');
+            searchWindow.style.top = "-440px";
+            windowContent.innerHTML = "";
+            itemWindow.parentNode.removeChild(itemWindow);
         }
 
         if (document.querySelector('.search-form._active')) {
@@ -127,6 +133,7 @@ if (animItems.length > 0) {
         return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
     }
 }
+
 
 
 

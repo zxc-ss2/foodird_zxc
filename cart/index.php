@@ -134,29 +134,45 @@ foreach ($cart_categories as $key) {
             <div class="cart__body">
                 <div class="cart__content">
                     <?php
-                    if(isset($_SESSION['login'])){
-                        foreach ($cart_products as $key) {
-
-                            echo '<div data-id="'. $key[0]['product_id'] .'" data-category="'. $key[0]['category_id'] .'" class="cart__item item-cart">
-                        <div class="item-cart__preview">
-                            <a href="#">
-                                <img src="'. $key[0]['product_path'] .'" alt="">
-                            </a>
+                    if(empty($cart_products)){
+                        echo '
+                        <div class="cart-empty">
+                            <div class="cart-empty__image">
+                                <img src="img/cart.svg" alt="">
+                            </div>
+                            <div class="cart-empty__text">
+                                <h4>В корзине пока нет товаров</h4>
+                                <a class="btn" href="../catalog/index.php">Начать покупки</a>
+                            </div>
                         </div>
-                        <div class="item-cart__name">'. $key[0]['product_name'].'</div>
-                        <div class="item-cart__count count-cart">
-                            <div class="count-cart__minus"><a class="minus">-</a></div>
-                            <div class="count-cart__quantity"><span>1</span> шт</div>
-                            <div class="count-cart__plus"><a class="plus" >+</a></div>
-                        </div>
-                        <div class="item-cart__price" data-price='. $key[0]['product_price'] .'><span>'. $key[0]['product_price'] .'</span>руб</div>
-                        <a href="#" class="item-cart__delete" data-id="'. $key[0]['product_id'] .'">~</a>
-                    </div>';
-                        }
+                        ';
                     }
                     else{
-                        echo '<div class="cart__item item-cart">Войдите в аккаунт или зарегистрируйтесь, чтобы пользоваться корзиной</div>';
+                        if(isset($_SESSION['login'])){
+                            foreach ($cart_products as $key) {
+    
+                                echo '<div data-id="'. $key[0]['product_id'] .'" data-category="'. $key[0]['category_id'] .'" class="cart__item item-cart">
+                            <div class="item-cart__preview">
+                                <a href="#">
+                                    <img src="'. $key[0]['product_path'] .'" alt="">
+                                </a>
+                            </div>
+                            <div class="item-cart__name">'. $key[0]['product_name'].'</div>
+                            <div class="item-cart__count count-cart">
+                                <div class="count-cart__minus"><a class="minus">-</a></div>
+                                <div class="count-cart__quantity"><span>1</span> шт</div>
+                                <div class="count-cart__plus"><a class="plus" >+</a></div>
+                            </div>
+                            <div class="item-cart__price" data-price='. $key[0]['product_price'] .'><span>'. $key[0]['product_price'] .'</span>руб</div>
+                            <a href="#" class="item-cart__delete" data-id="'. $key[0]['product_id'] .'">~</a>
+                        </div>';
+                            }
+                        }
+                        else{
+                            echo '<div class="cart__item item-cart">Войдите в аккаунт или зарегистрируйтесь, чтобы пользоваться корзиной</div>';
+                        }
                     }
+
                     ?>
                 </div>
                 <div class="cart__finish finish-cart">

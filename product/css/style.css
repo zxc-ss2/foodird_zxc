@@ -467,6 +467,7 @@ hr {
   top: 0;
   left: 0;
   min-height: 40px;
+  z-index: 1000;
 }
 
 .header._scroll .header__wrapper {
@@ -677,11 +678,34 @@ hr {
 /* Стрелка */
 
 /* Стрелка влево */
+.slick-arrow.slick-prev {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: url(../img/next.png) no-repeat;
+  transform: rotate(180deg);
+  background-size: cover;
+  background-position: center center;
+  font-size: 0;
+  background-color: #f2f8fc;
+  padding-right: 15px;
+}
 
 /* Стрелка вправо */
 
 .slick-arrow.slick-next {
-  background: url(../img/adv-bg1.jpg);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: url(../img/next.png) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-size: 0;
+  background-color: #f2f8fc;
+
 }
 
 /* Стрелка не активная */
@@ -705,7 +729,7 @@ hr {
 }
 
 .aslider .slick-arrow.slick-prev {
-  right: 40px;
+  right: 60px;
 }
 
 .aslider .slick-arrow.slick-next {
@@ -713,14 +737,50 @@ hr {
 }
 
 .product {
+  margin-top: 50px;
+}
+
+.search-window {
+  position: absolute;
+  top: -440px; left: 140px;
+  background: #fff;
+  padding: 20px;
+  transition: all 0.3s ease 0s;
+  min-width: 1000px;
+  z-index: 2000;
+}
+
+.item-window {
+  display: flex;
+  align-items: center;
   margin-top: 20px;
+}
+
+.item-window__img img{
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.info-window {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  align-items: center;
+}
+.info-window__name {
+  font-size: 16px;
+  font-weight: 700;
+}
+.info-window__price {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .body-product {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: flex-end;
 }
 
 .body-product__info {
@@ -744,6 +804,14 @@ hr {
 
 .slider-for__item {
   text-align: center;
+}
+
+.slider-for__item:nth-child(2){
+  transform: rotate(180deg)
+}
+
+.slider-for__item:last-child{
+  transform: rotate(90deg)
 }
 
 .slider-nav__item:nth-child(2){

@@ -34,10 +34,9 @@ $user_info = $query_user_info -> fetchAll();
                         <nav class="menu__body">
                             <ul class="menu__list">
                                 <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Каталог</a></li>
+                                <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
+                                <li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -78,20 +77,16 @@ $user_info = $query_user_info -> fetchAll();
             </div>
         </div>
     </div>
+    <div class="search-window">
+        <div class="search-window__content">
+        </div>
+    </div>
 </header>
     <main>
-        <section class="profile">
+        <section class="profile search-bot">
     <div class="profile__container container">
         <div class="profile__wrapper">
             <div class="profile__body body-profile">
-                <div class="body-profile__menu menu-profile">
-                    <nav class="menu-profile__nav">
-                        <ul>
-                            <li class="menu-profile__item"><a href="#" class="menu-profile__link">Мои заказы</a></li>
-                            <li class="menu-profile__item"><a href="#" class="menu-profile__link">Профиль</a></li>
-                        </ul>
-                    </nav>
-                </div>
                 <div class="body-profile__content">
                     <div class="body-profile__title title">
                         <h2>Профиль</h2>
@@ -112,14 +107,15 @@ $user_info = $query_user_info -> fetchAll();
                             </div>
 
                             <a class="btn save-btn save-btn-info">Сохранить изменения</a>
-                        </div>
-                        <div class="check success">
+
+                            <div class="check success">
                             <span>&#10004;</span>
                             <p>Данные успешно обновлены, вы будете перенаправлены на страницу авторизации через <span class="timer">5</span> секунд</p>
                         </div>
                         <div class="check fail">
                             <span>&#10006;</span>
                             <p class="fail-content"></p>
+                        </div>
                         </div>
                         <div class="body-profile__subtitle title">
                             <h4>Сменить пароль</h4>
@@ -136,10 +132,15 @@ $user_info = $query_user_info -> fetchAll();
                             </div>
 
                             <a class="btn save-btn save-btn-pass">Сохранить изменения</a>
-                        </div>
-                        <div class="check fail">
-                            <span>&#10006;</span>
-                            <p class="fail-content"></p>
+
+                            <div class="check success">
+                                <span>&#10004;</span>
+                                <p>Данные успешно обновлены, вы будете перенаправлены на страницу авторизации через <span class="timer">5</span> секунд</p>
+                            </div>
+                            <div class="check fail">
+                                <span>&#10006;</span>
+                                <p class="fail-content"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -216,6 +217,7 @@ $user_info = $query_user_info -> fetchAll();
         <p>©2021. Официальный сайт сети "foodird"</p>
     </div>
 </footer>
+    <script src="js/search.js"></script>
     <script src="js/updateInfo.js"></script>
     <script src="js/script.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>

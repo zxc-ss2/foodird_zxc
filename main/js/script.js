@@ -68,7 +68,7 @@ function loadProducts(data) {
 ;
 window.onload = function () {
     document.addEventListener("click", documentActions);
-    const offer = document.querySelector('.offer');
+    const offer = document.querySelector('.search-bot');
 
     function documentActions(e) {
         const targetElement = e.target;
@@ -76,20 +76,19 @@ window.onload = function () {
             document.querySelector('.search-form').classList.toggle('_active');
         }
         else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
+            const itemWindow = document.querySelector('.item-window');
             document.querySelector('.search-form').classList.remove('_active');
+            searchWindow.style.top = "-440px";
+            windowContent.innerHTML = "";
+            itemWindow.parentNode.removeChild(itemWindow);
         }
 
         if (document.querySelector('.search-form._active')) {
-            offer.style = "padding-top: 160px";
+            offer.style = "margin-top: 160px";
         }
         else {
-            offer.style = "padding-top: 80px";
-        }
-
-        if (targetElement.classList.contains('products-more')) {
-            getProducts(targetElement);
-            e.preventDefault();
-        }
+            offer.style = "margin-top: 80px";
+        } 
     }
 
 
@@ -221,7 +220,112 @@ if (animItems.length > 0) {
     }
 }
 
-animOnScroll();;
+
+const sliderItemsLabels = document.querySelectorAll('.item-product__label_sale');
+
+for (let i = 0; i < sliderItemsLabels.length; i++) {
+    if(sliderItemsLabels[i].textContent == "-0%"){
+        sliderItemsLabels[i].style.display = "none";
+    }
+}
+
+const consistProducts = [];
+new Promise((resolve,reject) => {
+    let xmlHttp2 = new XMLHttpRequest();
+    xmlHttp2.open("post", "../controllers/getCartId.php"); 
+
+    xmlHttp2.onreadystatechange = function()
+        {
+            if(xmlHttp2.readyState == 4 && xmlHttp2.status == 200)
+            {
+                // for (let i = 0; i < this.responseText.length; i++) {
+                //     const element = array[i];
+                    
+                // }
+                result = JSON.parse(xmlHttp2.responseText);
+                for (let i = 0; i < result.length; i++) {
+                    consistProducts.push(Object.values(result)[i]['product_id']);
+                }
+
+                const links = document.querySelectorAll(".actions-product__btn");
+                const itemCart = document.querySelectorAll(".item-product");
+                let numbers = [];
+                let productId = 0;
+
+                for (let i = 0; i < links.length; i++) {
+
+                    if(consistProducts.includes(itemCart[i].dataset.id)){
+                        itemCart[i].childNodes[1].childNodes[3].style.display = "flex";
+                        links[i].setAttribute('disabled', true);
+                    }
+                    else{
+                        links[i].addEventListener('click', () =>{
+                            productId = links[i].closest('.item-product').dataset.id;
+                            if(!links[i].classList.contains('_hold')){
+                                links[i].classList.add('_hold');
+                                links[i].classList.add('_fly');
+    
+                                const cart = document.querySelector('.cart-header__icon');
+                                const productImage = links[i].closest('.item-product').childNodes[3].childNodes[1];
+    
+                                const productImageFly = productImage.cloneNode(true);
+    
+                                const productImageFlyTop = productImage.getBoundingClientRect().top;
+                                const productImageFlyLeft = productImage.getBoundingClientRect().left;
+                                const productImageFlyWidth = productImage.offsetWidth;
+                                const productImageFlyHeight = productImage.offsetHeight;
+                                productImageFly.setAttribute('class', '_flyImage _ibg');
+                                productImageFly.style.cssText = `
+                                    left: ${productImageFlyLeft}px !important;
+                                    top: ${productImageFlyTop}px;
+                                    width: ${productImageFlyWidth}px;
+                                    height: ${productImageFlyHeight}px;
+                                `;
+    
+                                document.body.append(productImageFly);
+    
+                                const cartFlyLeft= cart.getBoundingClientRect().left;
+                                const cartFlyTop= cart.getBoundingClientRect().top;
+    
+                                productImageFly.style.cssText = `
+                                    left: ${cartFlyLeft}px !important;
+                                    top: ${cartFlyTop}px;
+                                    width: 0px;
+                                    height: 0px;
+                                    opacity: 0;
+                                `;
+                            }
+    
+                            function sendData(url, id){
+                                return new Promise((resolve,reject) => {
+                                    let xmlHttp = new XMLHttpRequest();
+                                    xmlHttp.open("post", url); 
+                        
+                                        xmlHttp.onreadystatechange = function()
+                                        {
+                                            if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                                            {
+                                                numbers.push(links[i].parentNode.parentNode.parentNode.parentNode.dataset.id);
+                                            }
+                                        }
+                                        xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                                        xmlHttp.send("id=" + id); 
+                                })
+                                
+                            }
+                            sendData("../controllers/server.php",productId);
+                        })
+                    }
+                    
+            }
+                        }
+                    }
+                    xmlHttp2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xmlHttp2.send("id=" + 0); 
+            })
+    
+
+
 
 
 

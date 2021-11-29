@@ -139,20 +139,20 @@ window.onload = function () {
             document.querySelector('.search-form').classList.toggle('_active');
         }
         else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
+            const itemWindow = document.querySelector('.item-window');
             document.querySelector('.search-form').classList.remove('_active');
+            offer.style = "margin-top: 80px";
+            searchWindow.style.top = "-440px";
+            windowContent.innerHTML = "";
+            itemWindow.parentNode.removeChild(itemWindow);
         }
 
         if (document.querySelector('.search-form._active')) {
-            offer.style = "margin-top: 190px";
+            offer.style = "margin-top: 140px";
         }
         else {
-            offer.style = "margin-top: 100px";
-        }
-
-        if (targetElement.classList.contains('products-more')) {
-            getProducts(targetElement);
-            e.preventDefault();
-        }
+            offer.style = "margin-top: 80px";
+        } 
     }
 
 
@@ -205,6 +205,8 @@ $(document).ready(function ($) {
         swipe: false,
         fade: true,
         asNavFor:".content-product__slider-nav",
+        autoplay: true,
+        autoplaySpeed: 1100,
         responsive: [
             {
                 breakpoint: 480,

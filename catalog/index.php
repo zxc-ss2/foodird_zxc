@@ -75,7 +75,7 @@ if(isset($_GET['category_id'])) {
         <div class="header__container container">
             <div class="header__body">
                 <div class="header__main">
-                    <a class="logo" href="#">
+                    <a class="logo" href="../main/index.php">
                         <img src="img/logo.png" alt="">
                         <img src="img/logo-text.png" alt="logo">
                     </a>
@@ -83,10 +83,9 @@ if(isset($_GET['category_id'])) {
                         <nav class="menu__body">
                             <ul class="menu__list">
                                 <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
+                                <li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -125,6 +124,10 @@ if(isset($_GET['category_id'])) {
                     </div>
                 </a>
             </div>
+        </div>
+    </div>
+    <div class="search-window">
+        <div class="search-window__content">
         </div>
     </div>
 </header>
@@ -345,6 +348,7 @@ if(isset($_GET['category_id'])) {
     <script src="js/cart.js"></script>
     <script src="js/select-category.js"></script>
     <script src="js/filter.js"></script>
+    <script src="js/search.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src="js/script.js"></script>
 </body>
