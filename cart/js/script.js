@@ -27,10 +27,10 @@ window.onload = function () {
         }
 
         if (document.querySelector('.search-form._active')) {
-            offer.style = "padding-top: 160px";
+            offer.style = "margin-top: 140px";
         }
         else {
-            offer.style = "padding-top: 80px";
+            offer.style = "margin-top: 80px";
         }
 
         if (targetElement.classList.contains('products-more')) {
@@ -299,7 +299,7 @@ for (let i = 0; i < removeBtns.length; i++) {
         const backProduct = `<a class="back-to-cart">Вернуть</a>`;
         returnText.insertAdjacentHTML('afterbegin', backProduct);
         const backToCart = document.querySelector('.back-to-cart');
-        startTimer(15,returnTime);
+        startTimer(5,returnTime);
         cxv.style.display = "none";
         
 
@@ -341,16 +341,20 @@ for (let i = 0; i < removeBtns.length; i++) {
                     xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xmlHttp.send("id=" + JSON.stringify(removeData)); 
                 })
-        }, 16000)
+        }, 6000)
     })
 }
 
 const sliderItemsLabels = document.querySelectorAll('.item-product__label_sale');
+const productPrices = document.querySelectorAll('.item-product__prices');
 
 for (let i = 0; i < sliderItemsLabels.length; i++) {
     if(sliderItemsLabels[i].textContent == "-0%"){
         sliderItemsLabels[i].style.display = "none";
+        const remove = productPrices[i].children[0];
+        const decor = productPrices[i].children[1];
+        remove.parentNode.removeChild(remove);
+        decor.style.textDecoration = "none";
     }
 }
-
 

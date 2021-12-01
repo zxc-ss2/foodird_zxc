@@ -28,11 +28,11 @@ seeMore.addEventListener('click', () => {
                                 </a>
                                 <div class="item-product__body">
                                     <div class="item-product__content">
-                                        <a href="../product/index.php?id=${result[i][j]["product_id"]}" class="item-product__title">${result[i][j]["product_name"]}</a>
+                                        <a href="../product/index.php?id=${result[i][j]["product_id"]}&category=${result[i][j]["category_id"]}" class="item-product__title">${result[i][j]["product_name"]}</a>
                                     </div>
                                     <div class="item-product__prices">
-                                        <div class="item-product__price">2руб./кг</div>
-                                        <div class="item-product__price item-product__price_old">${result[i][j]["product_price"]}руб./кг</div>
+                                        <div class="item-product__price">${(result[i][j]["product_price"] - result[i][j]["product_price"] * result[i][j]["discount_value"] / 100.).toFixed(1)}руб.</div>
+                                        <div class="item-product__price item-product__price_old">${result[i][j]["product_price"]}руб.</div>
                                     </div>
                                     <div class="item-product__actions actions-product">
                                         <div class="actions-product__body">

@@ -712,8 +712,35 @@ hr {
 
 /* Стрелка вправо */
 
+/* Стрелка влево */
+.slick-arrow.slick-prev {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: url(../img/next.png) no-repeat;
+  transform: rotate(180deg);
+  background-size: cover;
+  background-position: center center;
+  font-size: 0;
+  background-color: #f2f8fc;
+  padding-right: 15px;
+}
+
+/* Стрелка вправо */
+
 .slick-arrow.slick-next {
-  background: url(../img/adv-bg1.jpg);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: url(../img/next.png) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-size: 0;
+  background-color: #f2f8fc;
+
 }
 
 /* Стрелка не активная */
@@ -737,7 +764,7 @@ hr {
 }
 
 .aslider .slick-arrow.slick-prev {
-  right: 40px;
+  right: 60px;
 }
 
 .aslider .slick-arrow.slick-next {
@@ -958,6 +985,47 @@ hr {
   align-items: flex-end;
   word-wrap: break-word;
   padding: 0 5px;
+  position: relative;
+  z-index: 1000;
+}
+
+.search-window {
+  position: fixed;
+  top: -200px; left: 120px;
+  background: #fff;
+  padding: 20px;
+  transition: all 0.3s ease 0s;
+  z-index: 2000;
+  overflow-y: scroll;
+  max-height: 70%;
+}
+
+.item-window {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.item-window__img img{
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.info-window {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  align-items: center;
+}
+.info-window__name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 30px;
+}
+.info-window__price {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 40px;
 }
 
 .item-product__content a{

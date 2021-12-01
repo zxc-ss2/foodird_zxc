@@ -22,7 +22,6 @@ new Promise((resolve,reject) => {
                 let productId = 0;
 
                 for (let i = 0; i < links.length; i++) {
-                    console.log(itemCart[i].dataset.id);
 
                         links[i].addEventListener('click', () =>{
                             productId = links[i].closest('.item-product').dataset.id;
@@ -329,10 +328,15 @@ $(document).ready(function ($) {
 // animOnScroll();;
 
 const sliderItemsLabels = document.querySelectorAll('.item-product__label_sale');
+const productPrices = document.querySelectorAll('.item-product__prices');
 
 for (let i = 0; i < sliderItemsLabels.length; i++) {
     if(sliderItemsLabels[i].textContent == "-0%"){
         sliderItemsLabels[i].style.display = "none";
+        const remove = productPrices[i].children[0];
+        const decor = productPrices[i].children[1];
+        remove.parentNode.removeChild(remove);
+        decor.style.textDecoration = "none";
     }
 }
 

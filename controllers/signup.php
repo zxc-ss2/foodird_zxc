@@ -21,14 +21,15 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['pass']) && i
 
         if(empty($users)){
 
-            $sql = "insert into users(name, email, password) values(:name, :email, :password)";
+            $sql = "insert into users(name, email, password, role_id) values(:name, :email, :password, :role)";
             $query = $pdo -> prepare($sql);
             $query -> execute(array(
                 'name' => $name,
                 'email' => $email,
-                'password' => $hashed_password
+                'password' => $hashed_password,
+                'role' => 2
             ));
-
+            $_SESSION['login'] = $email;
             header("Location: ../account/index.php");
         }
 

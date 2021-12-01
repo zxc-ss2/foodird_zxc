@@ -50,6 +50,10 @@ $purchases_products = $purchases_products_query -> fetchAll();
                         <form action="#" class="search-form__item">
                             <a class="search-form__btn icon-search"></a>
                             <input autocomplete="off" type="text" name="forma" class="search-from__input">
+                            <div class="search-window">
+        <div class="search-window__content">
+        </div>
+    </div>
                         </form>
                     </div>
                 </div>
@@ -79,10 +83,6 @@ $purchases_products = $purchases_products_query -> fetchAll();
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-    <div class="search-window">
-        <div class="search-window__content">
         </div>
     </div>
 </header>

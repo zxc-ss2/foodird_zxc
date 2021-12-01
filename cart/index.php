@@ -38,7 +38,7 @@ $cart_categories = $cart_categories_query -> fetchAll();
 $similar_slider_products = array();
 foreach ($cart_categories as $key) {
     $similar_slider_products_sql = "select products.product_id, product_name, product_price, product_path, products.discount_id, discount_value, category_id from products left outer join
-     cart on products.product_id = cart.product_id inner join discounts on products.discount_id = discounts.discount_id where category_id = :id and cart.cart_id is null order by rand()";
+    cart on products.product_id = cart.product_id inner join discounts on products.discount_id = discounts.discount_id where category_id = :id and cart.cart_id is null order by rand()";
     $similar_cart_products_query = $pdo -> prepare($similar_slider_products_sql);
     $similar_cart_products_query -> execute([
         'id' => $key['category_id']
@@ -78,10 +78,16 @@ foreach ($cart_categories as $key) {
                         <nav class="menu__body">
                             <ul class="menu__list">
                                 <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
+                                <?php 
+                                    if(isset($_SESSION['login'])){
+                                        echo '<li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>';
+                                    }
+                                    else{
+                                        echo '<li class="menu__item"><a class="menu__link" href="../reglog/log.php">Личный кабинет</a></li>';
+                                    }
+                                ?>
                             </ul>
                         </nav>
                     </div>
@@ -91,6 +97,10 @@ foreach ($cart_categories as $key) {
                         <form action="#" class="search-form__item">
                             <a class="search-form__btn icon-search"></a>
                             <input autocomplete="off" type="text" name="forma" class="search-from__input">
+                            <div class="search-window">
+                                <div class="search-window__content">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -153,7 +163,7 @@ foreach ($cart_categories as $key) {
     
                                 echo '<div data-id="'. $key[0]['product_id'] .'" data-category="'. $key[0]['category_id'] .'" class="cart__item item-cart">
                             <div class="item-cart__preview">
-                                <a href="#">
+                                <a href="../product/index.php?id='. $key[0]['product_id'] .'&category='. $key[0]['category_id'] .'">
                                     <img src="'. $key[0]['product_path'] .'" alt="">
                                 </a>
                             </div>
@@ -164,7 +174,7 @@ foreach ($cart_categories as $key) {
                                 <div class="count-cart__plus"><a class="plus" >+</a></div>
                             </div>
                             <div class="item-cart__price" data-price='. $key[0]['product_price'] .'><span>'. $key[0]['product_price'] .'</span>руб</div>
-                            <a href="#" class="item-cart__delete" data-id="'. $key[0]['product_id'] .'">~</a>
+                            <a href="#" class="item-cart__delete" data-id="'. $key[0]['product_id'] .'" style="color: #000">&#10006;</a>
                         </div>';
                             }
                         }
@@ -186,9 +196,8 @@ foreach ($cart_categories as $key) {
                     <div class="finish-cart__count"><?php echo count($cart_products) ?> товар(ов)</div>
                     <div class="finish-cart__pay pay-cart">
                         <div class="pay-cart__title">К оплате</div>
-                        <div class="pay-cart__price">77,90 Р</div>
+                        <div class="pay-cart__price">0 Р</div>
                     </div>
-                    <a href="#" class="finish-cart__btn btn">Оформить заказ</a>
                 </div>
             </div>
         </div>
@@ -212,12 +221,12 @@ foreach ($cart_categories as $key) {
                                             <div class="item-product__labels">
                                                 <div class="item-product__label item-product__label_sale">-'. $zxc[$product2]["discount_value"] .'%</div>
                                             </div>
-                                            <a href="" class="item-product__image">
+                                            <a href="href="../product/index.php?id='. $zxc[$product2]["product_id"] .'&category='. $zxc[$product2]["category_id"] .'"" class="item-product__image">
                                                 <img class="catalog-img" src="'. $zxc[$product2]["product_path"] .'" alt="">
                                             </a>
                                             <div class="item-product__body">
                                                 <div class="item-product__content">
-                                                    <h5 class="item-product__title">'. $zxc[$product2]["product_name"] .'</h5>
+                                                    <a href="../product/index.php?id='. $zxc[$product2]["product_id"] .'&category='. $zxc[$product2]["category_id"] .'" class="item-product__title">'. $zxc[$product2]["product_name"] .'</a>
                                                 </div>
                                                 <div class="item-product__prices">
                                                     <div class="item-product__price">'. round($zxc[$product2]["product_price"] - $zxc[$product2]["product_price"] * $zxc[$product2]["discount_value"]/100,1) .'руб.</div>
@@ -310,6 +319,6 @@ foreach ($cart_categories as $key) {
 </footer>
     <script src="js/slider.js"></script>
     <script src="js/script.js"></script>
-
+    <script src="js/search.js"></script>
 </body>
 </html>

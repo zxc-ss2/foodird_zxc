@@ -742,11 +742,10 @@ hr {
 
 .search-window {
   position: absolute;
-  top: -440px; left: 140px;
+  top: 0; left: 0;
   background: #fff;
   padding: 20px;
   transition: all 0.3s ease 0s;
-  min-width: 1000px;
   z-index: 2000;
 }
 
@@ -964,17 +963,32 @@ hr {
 
 .item-product__content {
   flex: 1 1 auto;
+  display: flex;
+  align-items: flex-end;
+  word-wrap: break-word;
+  padding: 0 5px;
+  position: relative;
+  z-index: 1000;
+}
+
+.item-product__content a{
+  word-wrap: break-word;
 }
 
 .item-product__title {
   font-weight: 600;
   line-height: 120%;
   margin: 0 0 16px 0;
+  word-wrap: break-word;
+  position: relative;
+  z-index: 100;
+  color: #000;
 }
 
 .item-product__text {
   line-height: 150%;
   margin: 0 0 12px 0;
+  z-index: 100;
 }
 
 .item-product__prices {

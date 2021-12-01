@@ -69,7 +69,7 @@ if(isset($_GET['category_id'])) {
     <title>Document</title>
 </head>
 
-<body>
+<body style="position: relative">
 <header class="header">
     <div class="header__wrapper">
         <div class="header__container container">
@@ -92,9 +92,13 @@ if(isset($_GET['category_id'])) {
                 </div>
                 <div class="header__search">
                     <div class="search-form">
-                        <form action="#" class="search-form__item">
+                        <form action="#" class="search-form__item" style="">
                             <a class="search-form__btn icon-search"></a>
                             <input autocomplete="off" type="text" name="forma" class="search-from__input">
+                            <div class="search-window">
+                                <div class="search-window__content">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -124,10 +128,6 @@ if(isset($_GET['category_id'])) {
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-    <div class="search-window">
-        <div class="search-window__content">
         </div>
     </div>
 </header>
@@ -162,12 +162,6 @@ if(isset($_GET['category_id'])) {
                                 <h5>Цена</h5>
                             </div>
                             <div class="price-data__values">
-                                <div class="left-inp">
-                                    <input id="left-inp" placeholder="От" type="text">
-                                </div>
-                                <div class="right-inp">
-                                    <input id="right-inp" placeholder="До" type="text">
-                                </div>
                                 <div class="price-decrease">
                                     <a href="#">По убыванию</a>
                                 </div>

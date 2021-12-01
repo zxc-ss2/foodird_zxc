@@ -763,13 +763,14 @@ hr {
 }
 
 .search-window {
-  position: absolute;
-  top: -440px; left: 140px;
+  position: fixed;
+  top: -200px; left: 120px;
   background: #fff;
   padding: 20px;
   transition: all 0.3s ease 0s;
-  min-width: 1000px;
   z-index: 2000;
+  overflow-y: scroll;
+  max-height: 70%;
 }
 
 .item-window {
@@ -785,7 +786,6 @@ hr {
 
 .info-window {
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
   flex: 1 1 auto;
   align-items: center;
@@ -793,10 +793,12 @@ hr {
 .info-window__name {
   font-size: 16px;
   font-weight: 700;
+  margin-left: 30px;
 }
 .info-window__price {
   font-size: 18px;
   font-weight: 700;
+  margin-left: 40px;
 }
 
 /* Конкрутный слайдер */
@@ -1215,7 +1217,7 @@ hr {
 }
 
 .products {
-  margin-top: -100px;
+  margin-top: 100px;
   position: relative;
   z-index: 100;
 }

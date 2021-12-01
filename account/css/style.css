@@ -324,13 +324,14 @@ h6 {
 }
 
 .search-window {
-  position: absolute;
-  top: -440px; left: 140px;
+  position: fixed;
+  top: -200px; left: 120px;
   background: #fff;
   padding: 20px;
   transition: all 0.3s ease 0s;
-  min-width: 1000px;
   z-index: 2000;
+  overflow-y: scroll;
+  max-height: 70%;
 }
 
 .item-window {
@@ -346,7 +347,6 @@ h6 {
 
 .info-window {
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
   flex: 1 1 auto;
   align-items: center;
@@ -354,10 +354,12 @@ h6 {
 .info-window__name {
   font-size: 16px;
   font-weight: 700;
+  margin-left: 30px;
 }
 .info-window__price {
   font-size: 18px;
   font-weight: 700;
+  margin-left: 40px;
 }
 
 .timer{
@@ -705,6 +707,11 @@ hr {
   align-items: center;
 }
 
+.actions-header__item{
+  color: #000 !important;
+  text-decoration: none !important;
+}
+
 .actions-header__item:not(:last-child) {
   padding-right: 35px;
 }
@@ -872,8 +879,10 @@ body {
   border-radius: 7px;
   font-weight: 700;
   font-size: 18px;
-  color: #000;
+  color: #000 !important;
   background: #f2f8fc;
+  cursor: pointer;
+  text-decoration: none !important;
 }
 
 .search-bot {
@@ -1487,19 +1496,19 @@ a:hover {
   }
 
   .menu__link:hover {
-    color: #02b1c7;
+    color: #02b1c7 !important;
   }
 
   .actions-header__item_search:hover {
-    color: #02b1c7;
+    color: #02b1c7 !important;
   }
 
   .actions-header__item_favorites:hover {
-    color: #02b1c7;
+    color: #02b1c7 !important;
   }
 
   .cart-header__icon:hover {
-    color: #02b1c7;
+    color: #02b1c7 !important;
   }
 
   .btn:hover {

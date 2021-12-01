@@ -36,7 +36,7 @@ $similar_products = $query_similar_products -> fetchAll();
         <div class="header__container container">
             <div class="header__body">
                 <div class="header__main">
-                    <a class="logo" href="#">
+                    <a class="logo" href="../main/index.php">
                         <img src="img/logo.png" alt="">
                         <img src="img/logo-text.png" alt="logo">
                     </a>
@@ -56,6 +56,10 @@ $similar_products = $query_similar_products -> fetchAll();
                         <form action="#" class="search-form__item">
                             <a class="search-form__btn icon-search"></a>
                             <input autocomplete="off" type="text" name="forma" class="search-from__input">
+                            <div class="search-window">
+                                <div class="search-window__content">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -86,10 +90,6 @@ $similar_products = $query_similar_products -> fetchAll();
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-    <div class="search-window">
-        <div class="search-window__content">
         </div>
     </div>
 </header>
@@ -174,7 +174,7 @@ $similar_products = $query_similar_products -> fetchAll();
                                     </a>
                                     <div class="item-product__body">
                                         <div class="item-product__content">
-                                            <h5 class="item-product__title">'. $key['product_name'] .'</h5>
+                                            <a href="../product/index.php?id='. $key['product_id'] .'&category='. $key['category_id'] .'" class="item-product__title">'. $key['product_name'] .'</a>
                                         </div>
                                         <div class="item-product__prices">
                                             <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>

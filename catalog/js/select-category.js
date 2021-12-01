@@ -54,12 +54,12 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                     </div>
                                 </div>
                             </article>
+
                         `;
 
-                        categoryItems.insertAdjacentHTML("afterbegin", productTemplate);
-                        const leftInp = document.querySelector('#left-inp');
-                        const rightInp = document.querySelector('#right-inp');
+                        console.log(xmlHttp.responseText);
 
+                        categoryItems.insertAdjacentHTML("afterbegin", productTemplate);
                         new Promise((resolve,reject) => {
                             let xmlHttp = new XMLHttpRequest();
                             xmlHttp.open("post", "../controllers/max.php"); 
@@ -70,7 +70,6 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                 {
                                     let maxPrice = JSON.parse(xmlHttp.responseText);
                                     for (let i = 0; i < maxPrice.length; i++) {
-                                        rightInp.value = Math.round(Number(Object.values(maxPrice)[i]['max(product_price)']));
                                     }
                                 }
                             }
@@ -88,7 +87,6 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                 {
                                     let minPrice = JSON.parse(xmlHttp.responseText);
                                     for (let i = 0; i < minPrice.length; i++) {
-                                        leftInp.value = Math.round(Number(Object.values(minPrice)[i]['min(product_price)']));
                                     }
                                 }
                             }
@@ -107,7 +105,6 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                     {
                                         if(xmlHttp2.readyState == 4 && xmlHttp2.status == 200)
                                         {
-                                           
                                             for (let i = 0; i < sliderItemsLabels.length; i++) {
                                             
                                                     if(sliderItemsLabels[i].textContent == "-0%"){
@@ -198,6 +195,18 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                         })
     
 
+                    }
+                    const sliderItemsLabels = document.querySelectorAll('.item-product__label_sale');
+                    const productPrices = document.querySelectorAll('.item-product__prices');
+
+                    for (let i = 0; i < sliderItemsLabels.length; i++) {
+                        if(sliderItemsLabels[i].textContent == "-0%"){
+                            sliderItemsLabels[i].style.display = "none";
+                            const remove = productPrices[i].children[0];
+                            const decor = productPrices[i].children[1];
+                            remove.parentNode.removeChild(remove);
+                            decor.style.textDecoration = "none";
+                        }
                     }
 
                 }

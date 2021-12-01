@@ -80,7 +80,6 @@ window.onload = function () {
             document.querySelector('.search-form').classList.remove('_active');
             searchWindow.style.top = "-440px";
             windowContent.innerHTML = "";
-            itemWindow.parentNode.removeChild(itemWindow);
         }
 
         if (document.querySelector('.search-form._active')) {
