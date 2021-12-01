@@ -1607,6 +1607,19 @@ body {
   .gallery {
     padding: 0 10px;
   }
+
+  .gallery__items-m{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .gallery__item-m{
+  }
+
+  .gallery__item-m:last-child{
+    padding: 0;
+  }
 }
 
 @media (max-width: 767.98px) {

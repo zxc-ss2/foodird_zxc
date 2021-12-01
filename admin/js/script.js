@@ -67,6 +67,28 @@ for (let i = 0; i < cartDeleteBtns.length; i++) {
             {
                 if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
                 {
+                    location.reload();
+                }
+            }
+            xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xmlHttp.send("id=" + JSON.stringify(id)); 
+        })
+    })
+}
+
+const purchaseDeleteBtns = document.querySelectorAll('.purchase-delete');
+
+for (let i = 0; i < purchaseDeleteBtns.length; i++) {
+    purchaseDeleteBtns[i].addEventListener("click", () => {
+        const id = purchaseDeleteBtns[i].dataset.id;
+        new Promise((resolve,reject) => {
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("post", "../controllers/admin-purchases.php"); 
+                        
+            xmlHttp.onreadystatechange = function()
+            {
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                {
                 }
             }
             xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

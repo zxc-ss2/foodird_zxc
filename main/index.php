@@ -37,10 +37,15 @@ $purchases_products = $purchases_products_query -> fetchAll();
                     <div class="header__menu menu">
                         <nav class="menu__body">
                             <ul class="menu__list">
-                                <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
+                                <li class="menu__item"><a class="menu__link" href="404/404.htm">Покупателям</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
+                                <li class="menu__item"><a class="menu__link" href="404/404.htm">О компании</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>
+                                <?php 
+                                if($_SESSION['role'] == 1){
+                                    echo '<li class="menu__item"><a class="menu__link" href="../admin/index.php">Админ</a></li>';
+                                }
+                                ?>
                             </ul>
                         </nav>
                     </div>
@@ -296,25 +301,96 @@ $purchases_products = $purchases_products_query -> fetchAll();
         </div>
     </div>
     <div class="gallery__mobile">
-
         <div class="gallery__items-m">
             <div class="gallery__item-m">
-                <img src="img/gallery-1.jpg" alt="">
+                <div class="responce">
+                    <div class="responce__photo" style="background: center/cover url(img/responces/1.jpg) no-repeat;">
+                </div>
+                <div class="responce__name">
+                        <h3>Алексеева Федосья</h3>
+                </div>
+                <div class="responce__text">
+                    <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                            dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                    </p>
+                </div>
             </div>
             <div class="gallery__item-m">
-                <img src="img/gallery-2.jpg" alt="">
+                <div class="responce">
+                    <div class="responce__photo" style="background: center/cover url(img/responces/2.jpg) no-repeat;">
+                </div>
+                <div class="responce__name">
+                        <h3>Алексеева Федосья</h3>
+                </div>
+                <div class="responce__text">
+                    <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                            dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                    </p>
+                </div>
             </div>
             <div class="gallery__item-m">
-                <img src="img/gallery-3.jpg" alt="">
+                <div class="responce">
+                    <div class="responce__photo" style="background: center/cover url(img/responces/3.jpg) no-repeat;">
+                </div>
+                <div class="responce__name">
+                        <h3>Алексеева Федосья</h3>
+                </div>
+                <div class="responce__text">
+                    <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                            dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                    </p>
+                </div>
             </div>
             <div class="gallery__item-m">
-                <img src="img/gallery-4.jpg" alt="">
+                <div class="responce">
+                    <div class="responce__photo" style="background: center/cover url(img/responces/4.jpg) no-repeat;">
+                </div>
+                <div class="responce__name">
+                        <h3>Алексеева Федосья</h3>
+                </div>
+                <div class="responce__text">
+                    <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                            dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                    </p>
+                </div>
             </div>
             <div class="gallery__item-m">
-                <img src="img/gallery-5.jpg" alt="">
+                <div class="responce">
+                    <div class="responce__photo" style="background: center/cover url(img/responces/5.jpg) no-repeat;">
+                </div>
+                <div class="responce__name">
+                        <h3>Алексеева Федосья</h3>
+                </div>
+                <div class="responce__text">
+                    <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                            dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                    </p>
+                </div>
             </div>
             <div class="gallery__item-m">
-                <img src="img/gallery-6.jpg" alt="">
+                <div class="responce">
+                    <div class="responce__photo" style="background: center/cover url(img/responces/6.jpg) no-repeat;">
+                </div>
+                <div class="responce__name">
+                        <h3>Алексеева Федосья</h3>
+                </div>
+                <div class="responce__text">
+                    <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                            dolor in reprehenderit in voluptate velit esse cillum dolore. 
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -333,7 +409,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                             <div class="item-product__label item-product__label_sale">-'. $key['discount_value'] .'%</div>
                             <div class="item-product__label item-product__label_cart _icon-cart"></div>
                         </div>
-                        <a href="" class="item-product__image">
+                        <a href="../product/index.php?id='. $key['product_id'] .'&category='. $key['category_id'] .'" class="item-product__image">
                             <img class="catalog-img" src="'.$key['product_path'].'" alt="">
                         </a>
                         <div class="item-product__body">
@@ -343,11 +419,6 @@ $purchases_products = $purchases_products_query -> fetchAll();
                             <div class="item-product__prices">
                                 <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>
                                 <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб./кг</div>
-                            </div>
-                            <div class="item-product__actions actions-product">
-                                <div class="actions-product__body">
-                                    <a class="btn  actions-product__btn">Добавить</a>
-                                </div>
                             </div>
                         </div>
                     </article>';
@@ -419,9 +490,9 @@ $purchases_products = $purchases_products_query -> fetchAll();
                             <h5>Каталог</h5>
                             <div class="footer-menu__shop">
                                 <ul class="shop-menu">
-                                    <li class="shop-menu__item"><a href="">Фрукты, Овощи</a></li>
-                                    <li class="shop-menu__item"><a href="">Мясо, птица</a></li>
-                                    <li class="shop-menu__item"><a href="">Молоко, сыр</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Фрукты, Овощи</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Мясо, птица</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Молоко, сыр</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -429,9 +500,9 @@ $purchases_products = $purchases_products_query -> fetchAll();
                             <h5>Контакты</h5>
                             <div class="footer-menu__help">
                                 <ul class="help-menu">
-                                    <li class="help-menu__item"><a href="">Магазины</a></li>
-                                    <li class="help-menu__item"><a href="">Правовая информация</a></li>
-                                    <li class="help-menu__item"><a href="">Реквизиты</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Магазины</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Правовая информация</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Реквизиты</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -439,9 +510,9 @@ $purchases_products = $purchases_products_query -> fetchAll();
                             <h5>О компании</h5>
                             <div class="footer-menu__about">
                                 <ul class="about-menu">
-                                    <li class="about-menu__item"><a href="">Вакансии</a></li>
-                                    <li class="about-menu__item"><a href="">История</a></li>
-                                    <li class="about-menu__item"><a href="">Арендаторам</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">Вакансии</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">История</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">Арендаторам</a></li>
                                 </ul>
                             </div>
                         </div>

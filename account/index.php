@@ -10,6 +10,8 @@ $query_user_info -> execute([
 $user_info = $query_user_info -> fetchAll();
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,10 +35,15 @@ $user_info = $query_user_info -> fetchAll();
                     <div class="header__menu menu">
                         <nav class="menu__body">
                             <ul class="menu__list">
-                                <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
+                                <li class="menu__item"><a class="menu__link" href="404/404.htm">Покупателям</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
+                                <li class="menu__item"><a class="menu__link" href="404/404.htm">О компании</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>
+                                <?php 
+                                if($_SESSION['role'] == 1){
+                                    echo '<li class="menu__item"><a class="menu__link" href="../admin/index.php">Админ</a></li>';
+                                }
+                                ?>
                             </ul>
                         </nav>
                     </div>
@@ -54,6 +61,7 @@ $user_info = $query_user_info -> fetchAll();
                     <?php
                     if(isset($_SESSION['login'])){
                         echo '<a href="../controllers/logout.php" class="actions-header__item actions-header__item_favorites _icon-logout"></a>';
+
                     }
                     else{
                         echo '<a href="../reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
@@ -182,9 +190,9 @@ $user_info = $query_user_info -> fetchAll();
                             <h5>Каталог</h5>
                             <div class="footer-menu__shop">
                                 <ul class="shop-menu">
-                                    <li class="shop-menu__item"><a href="">Фрукты, Овощи</a></li>
-                                    <li class="shop-menu__item"><a href="">Мясо, птица</a></li>
-                                    <li class="shop-menu__item"><a href="">Молоко, сыр</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Фрукты, Овощи</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Мясо, птица</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Молоко, сыр</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -192,9 +200,9 @@ $user_info = $query_user_info -> fetchAll();
                             <h5>Контакты</h5>
                             <div class="footer-menu__help">
                                 <ul class="help-menu">
-                                    <li class="help-menu__item"><a href="">Магазины</a></li>
-                                    <li class="help-menu__item"><a href="">Правовая информация</a></li>
-                                    <li class="help-menu__item"><a href="">Реквизиты</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Магазины</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Правовая информация</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Реквизиты</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -202,9 +210,9 @@ $user_info = $query_user_info -> fetchAll();
                             <h5>О компании</h5>
                             <div class="footer-menu__about">
                                 <ul class="about-menu">
-                                    <li class="about-menu__item"><a href="">Вакансии</a></li>
-                                    <li class="about-menu__item"><a href="">История</a></li>
-                                    <li class="about-menu__item"><a href="">Арендаторам</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">Вакансии</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">История</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">Арендаторам</a></li>
                                 </ul>
                             </div>
                         </div>

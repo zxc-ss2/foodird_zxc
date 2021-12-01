@@ -28,7 +28,7 @@ $products = $products_query -> fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 
@@ -45,11 +45,17 @@ $products = $products_query -> fetchAll();
                     <div class="header__menu menu">
                         <nav class="menu__body">
                             <ul class="menu__list">
-                                <li class="menu__item"><a class="menu__link" href="#">Покупателям</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Акции</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Каталог</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
-                                <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
+                            <li class="menu__item"><a class="menu__link" href="404/404.htm">Покупателям</a></li>
+                                <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
+                                <li class="menu__item"><a class="menu__link" href="404/404.htm">О компании</a></li>
+                                <?php 
+                                    if(isset($_SESSION['login'])){
+                                        echo '<li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>';
+                                    }
+                                    else{
+                                        echo '<li class="menu__item"><a class="menu__link" href="../reglog/log.php">Личный кабинет</a></li>';
+                                    }
+                                ?>
                             </ul>
                         </nav>
                     </div>
@@ -64,7 +70,14 @@ $products = $products_query -> fetchAll();
                 </div>
                 <div class="header-actions actions-header">
                     <a href="#" class="actions-header__item actions-header__item_search _icon-search"></a>
-                    <a href="" class="actions-header__item actions-header__item_favorites _icon-user"></a>
+                    <?php
+                    if(isset($_SESSION['login'])){
+                        echo '<a href="../controllers/logout.php" class="actions-header__item actions-header__item_favorites _icon-logout"></a>';
+                    }
+                    else{
+                        echo '<a href="../reglog/log.php" class="actions-header__item actions-header__item_favorites _icon-user"></a>';
+                    }
+                    ?>
                     <div class="actions-header__item cart-header">
                         <a href="" class="cart-header__icon _icon-cart"></a>
                         <div class="cart-header__body">
@@ -144,7 +157,7 @@ $products = $products_query -> fetchAll();
                                         <td>'. $key['purchase_count'] .'</td>
                                         <td>'. $key['date'] .'</td>
                                         <td>'. $key['user_id'] .'</td>
-                                        <td><a class="delete" href="#">Удалить</a></td>
+                                        <td><a data-id="'. $key['purchase_id'] .'" class="purchase-delete" href="#">Удалить</a></td>
                                     </tr>
                                     ';
                                 }
@@ -172,7 +185,6 @@ $products = $products_query -> fetchAll();
                                         <td>'. $key['supplier_id'] .'</td>
                                         <td>'. $key['discount_value'] .'</td>
                                         <td>'. $key['category_name'] .'</td>
-                                        <td><a class="delete" href="#">Удалить</a></td>
                                     </tr>
                                     ';
                                 }
@@ -218,9 +230,9 @@ $products = $products_query -> fetchAll();
                             <h5>Каталог</h5>
                             <div class="footer-menu__shop">
                                 <ul class="shop-menu">
-                                    <li class="shop-menu__item"><a href="">Фрукты, Овощи</a></li>
-                                    <li class="shop-menu__item"><a href="">Мясо, птица</a></li>
-                                    <li class="shop-menu__item"><a href="">Молоко, сыр</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Фрукты, Овощи</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Мясо, птица</a></li>
+                                    <li class="shop-menu__item"><a href="404/404.htm">Молоко, сыр</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -228,9 +240,9 @@ $products = $products_query -> fetchAll();
                             <h5>Контакты</h5>
                             <div class="footer-menu__help">
                                 <ul class="help-menu">
-                                    <li class="help-menu__item"><a href="">Магазины</a></li>
-                                    <li class="help-menu__item"><a href="">Правовая информация</a></li>
-                                    <li class="help-menu__item"><a href="">Реквизиты</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Магазины</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Правовая информация</a></li>
+                                    <li class="help-menu__item"><a href="404/404.htm">Реквизиты</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -238,9 +250,9 @@ $products = $products_query -> fetchAll();
                             <h5>О компании</h5>
                             <div class="footer-menu__about">
                                 <ul class="about-menu">
-                                    <li class="about-menu__item"><a href="">Вакансии</a></li>
-                                    <li class="about-menu__item"><a href="">История</a></li>
-                                    <li class="about-menu__item"><a href="">Арендаторам</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">Вакансии</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">История</a></li>
+                                    <li class="about-menu__item"><a href="404/404.htm">Арендаторам</a></li>
                                 </ul>
                             </div>
                         </div>
