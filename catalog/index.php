@@ -344,9 +344,9 @@ if(isset($_GET['category_id'])) {
     </div>
 </footer>
     <script src="js/seeMore.js"></script>
+    <script src="js/filter.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/select-category.js"></script>
-    <script src="js/filter.js"></script>
     <script src="js/search.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src="js/script.js"></script>

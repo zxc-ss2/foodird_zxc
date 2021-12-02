@@ -187,7 +187,7 @@ $similar_products = $query_similar_products -> fetchAll();
                                         </div>
                                         <div class="item-product__actions actions-product">
                                             <div class="actions-product__body">
-                                                <a href="" class="btn  actions-product__btn">В корзину</a>
+                                                <a href="#" class="btn  actions-product__btn">В корзину</a>
                                             </div>
                                         </div>
                                     </div>
@@ -270,6 +270,7 @@ $similar_products = $query_similar_products -> fetchAll();
     </div>
 </footer>
     <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/search.js"></script>
 </body>
 

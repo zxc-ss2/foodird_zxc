@@ -44,7 +44,6 @@ foreach ($cart_categories as $key) {
         'id' => $key['category_id']
     ]);
     $similar_slider_products[] = $similar_cart_products_query -> fetchAll();
-    echo $_SESSION['login'];
 }
 
 ?>
@@ -60,11 +59,6 @@ foreach ($cart_categories as $key) {
 </head>
 
 <body>
-    <?php
-        foreach ($cart_products as $key) {
-            echo $key['product_path'];
-        }
-    ?>
     <header class="header">
     <div class="header__wrapper">
         <div class="header__container container">
