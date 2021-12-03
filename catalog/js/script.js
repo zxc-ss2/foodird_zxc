@@ -20,6 +20,8 @@ window.onload = function () {
     const offer = document.querySelector('.search-bot');
     const searchWindow = document.querySelector('.search-window');
     const windowContent = document.querySelector('.search-window__content');
+    const titles = document.querySelectorAll('.item-product__title');
+
 
     function documentActions(e) {
         const targetElement = e.target;
@@ -35,9 +37,15 @@ window.onload = function () {
 
         if (document.querySelector('.search-form._active')) {
             offer.style = "margin-top: 160px";
+            for (let i = 0; i < titles.length; i++) {
+                titles[i].style.zIndex = "0";
+            }
         }
         else {
             offer.style = "margin-top: 100px";
+            for (let i = 0; i < titles.length; i++) {
+                titles[i].style.zIndex = "100";
+            }
         } 
     }
 };

@@ -325,19 +325,31 @@ h6 {
 
 .search-window {
   position: fixed;
-  top: -200px; left: 120px;
+  top: -200px;
   background: #fff;
   padding: 20px;
   transition: all 0.3s ease 0s;
-  z-index: 2000;
+  z-index: 10000 !important;
   overflow-y: scroll;
   max-height: 70%;
+  margin: auto auto;
 }
 
 .item-window {
   display: flex;
   align-items: center;
   margin-top: 20px;
+}
+
+.item-window__img{
+  display: flex;
+  justify-content: center;
+  transition: all 0.4s ease 0s;
+  min-width: 100px;
+}
+
+.item-window__img:hover{
+  transform: scale(0.9);
 }
 
 .item-window__img img{
@@ -354,7 +366,7 @@ h6 {
 .info-window__name {
   font-size: 16px;
   font-weight: 700;
-  margin-left: 30px;
+  margin-left: 40px;
 }
 .info-window__price {
   font-size: 18px;

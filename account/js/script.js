@@ -37,6 +37,10 @@ function loadProducts(data) {
 window.onload = function () {
     document.addEventListener("click", documentActions);
     const offer = document.querySelector('.search-bot');
+    const searchWindow = document.querySelector('.search-window');
+    const windowContent = document.querySelector('.search-window__content');
+    const titles = document.querySelectorAll('.item-product__title');
+
 
     function documentActions(e) {
         const targetElement = e.target;
@@ -48,18 +52,21 @@ window.onload = function () {
             document.querySelector('.search-form').classList.remove('_active');
             searchWindow.style.top = "-440px";
             windowContent.innerHTML = "";
-            itemWindow.parentNode.removeChild(itemWindow);
         }
 
         if (document.querySelector('.search-form._active')) {
             offer.style = "margin-top: 160px";
+            for (let i = 0; i < titles.length; i++) {
+                titles[i].style.zIndex = "0";
+            }
         }
         else {
             offer.style = "margin-top: 100px";
+            for (let i = 0; i < titles.length; i++) {
+                titles[i].style.zIndex = "100";
+            }
         } 
     }
-
-
 };
 const iconMenu = document.querySelector('.menu__btn');
 if (iconMenu) {

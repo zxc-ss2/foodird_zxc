@@ -20,10 +20,10 @@ searchInput.addEventListener("input", () => {
                         let template = `
                         <div class="search-window__item item-window">
                             <div class="item-window__img">
-                                <img src="${Object.values(data)[i]['product_path']}" alt="">
+                                <a href="../product/index.php?id=${Object.values(data)[i]['product_id']}&category=${Object.values(data)[i]['category_id']}" class="" href="#"><img src="${Object.values(data)[i]['product_path']}" alt=""></a>
                             </div>
                             <div class="item-window__info info-window">
-                                <a class="info-window__name">${Object.values(data)[i]['product_name']}</a>
+                                <a style="color: #000;" href="../product/index.php?id=${Object.values(data)[i]['product_id']}&category=${Object.values(data)[i]['category_id']}" class="info-window__name">${Object.values(data)[i]['product_name']}</a>
                                 <div class="info-window__price">${Object.values(data)[i]['product_price']}</div>
                             </div>
                         </div>

@@ -34,7 +34,7 @@ $similar_products = $query_similar_products -> fetchAll();
 <header class="header">
     <div class="header__wrapper">
         <div class="header__container container">
-            <div class="header__body">
+            <div class="header__body" style="position: relative">
                 <div class="header__main">
                     <a class="logo" href="../main/index.php">
                         <img src="img/logo.png" alt="">
