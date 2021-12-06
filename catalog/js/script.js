@@ -36,16 +36,25 @@ window.onload = function () {
         }
 
         if (document.querySelector('.search-form._active')) {
-            offer.style = "margin-top: 160px";
+            const layer = document.querySelectorAll('.layer');
+            for (let i = 0; i < layer.length; i++) {
+                layer[i].classList.add('layer-active');
+            }
             for (let i = 0; i < titles.length; i++) {
                 titles[i].style.zIndex = "0";
             }
+            offer.style = "padding-top: 80px";
+
         }
         else {
-            offer.style = "margin-top: 100px";
+            const layer = document.querySelectorAll('.layer');
+            for (let i = 0; i < layer.length; i++) {
+                layer[i].classList.remove('layer-active');
+            }
             for (let i = 0; i < titles.length; i++) {
                 titles[i].style.zIndex = "100";
             }
+            offer.style = "padding-top: 0px";
         } 
     }
 };

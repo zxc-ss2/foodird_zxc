@@ -136,7 +136,8 @@ if(isset($_GET['category_id'])) {
         </div>
     </div>
 </header>
-<main>
+<main style="position: relative;">
+<div class="layer"></div>
 <section class="page search-bot">
     <div class="page__container container">
         <div class="page__wrapper">
@@ -275,7 +276,8 @@ if(isset($_GET['category_id'])) {
     </div>
 </section>
 </main>
-<footer class="footer">
+<footer class="footer" style="position: relative;">
+<div class="layer"></div>
     <div class="footer__wrapper">
         <div class="footer__container container">
             <div class="footer__body body-footer">

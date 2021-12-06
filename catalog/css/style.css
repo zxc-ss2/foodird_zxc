@@ -1116,11 +1116,15 @@ body {
   color: #000;
 }
 
-.layer-body{
+.layer-active{
   position: absolute;
-  background: #000;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
+  background: #000;
+  opacity: 0.4;
+  z-index: 500;
+  transition: all 0.4s ease 0s;
 }
 
 .search-window {

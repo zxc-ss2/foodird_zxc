@@ -83,10 +83,18 @@ window.onload = function () {
         }
 
         if (document.querySelector('.search-form._active')) {
-            offer.style = "margin-top: 160px";
+            const layer = document.querySelectorAll('.layer');
+            for (let i = 0; i < layer.length; i++) {
+                layer[i].classList.add('layer-active');
+            }
+            offer.style = "padding-top: 120px";
         }
         else {
-            offer.style = "margin-top: 80px";
+            const layer = document.querySelectorAll('.layer');
+            for (let i = 0; i < layer.length; i++) {
+                layer[i].classList.remove('layer-active');
+            }
+            offer.style = "padding-top: 0px";
         } 
     }
 

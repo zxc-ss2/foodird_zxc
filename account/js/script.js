@@ -12,28 +12,25 @@ const callback = function (entries, observer) {
 const headerObserver = new IntersectionObserver(callback);
 headerObserver.observe(headerElement);
 
-async function getProducts(button) {
-    if (!button.classList.contains('_hold')) {
-        button.classList.add('_hold');
-        const file = "json/products.json";
-        let response = await fetch(file, {
-            method: "GET"
-        });
-        if (response.ok) {
-            let result = await response.json();
-            loadProducts(result);
-            button.classList.remove('_hold');
-            button.remove();
-        }
-        else {
-            alert('sesh');
-        }
-    }
-}
+// async function getProducts(button) {
+//     if (!button.classList.contains('_hold')) {
+//         button.classList.add('_hold');
+//         const file = "json/products.json";
+//         let response = await fetch(file, {
+//             method: "GET"
+//         });
+//         if (response.ok) {
+//             let result = await response.json();
+//             loadProducts(result);
+//             button.classList.remove('_hold');
+//             button.remove();
+//         }
+//         else {
+//             alert('sesh');
+//         }
+//     }
+// }
 
-function loadProducts(data) {
-}
-;
 window.onload = function () {
     document.addEventListener("click", documentActions);
     const offer = document.querySelector('.search-bot');
@@ -55,16 +52,18 @@ window.onload = function () {
         }
 
         if (document.querySelector('.search-form._active')) {
-            offer.style = "margin-top: 160px";
-            for (let i = 0; i < titles.length; i++) {
-                titles[i].style.zIndex = "0";
+            const layer = document.querySelectorAll('.layer');
+            for (let i = 0; i < layer.length; i++) {
+                layer[i].classList.add('layer-active');
             }
+            offer.style = "padding-top: 120px";
         }
         else {
-            offer.style = "margin-top: 100px";
-            for (let i = 0; i < titles.length; i++) {
-                titles[i].style.zIndex = "100";
+            const layer = document.querySelectorAll('.layer');
+            for (let i = 0; i < layer.length; i++) {
+                layer[i].classList.add('layer-active');
             }
+            offer.style = "padding-top: 100px";
         } 
     }
 };

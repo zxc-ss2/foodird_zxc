@@ -51,7 +51,7 @@ $user_info = $query_user_info -> fetchAll();
                 <div class="header__search">
                     <div class="search-form">
                         <form action="#" class="search-form__item">
-                            <a class="search-form__btn icon-search"></a>
+                            <a class="search-form__btn _icon-search"></a>
                             <input autocomplete="off" type="text" name="forma" class="search-from__input">
                             <div class="search-window">
                                 <div class="search-window__content">
@@ -90,8 +90,9 @@ $user_info = $query_user_info -> fetchAll();
         </div>
     </div>
 </header>
-    <main>
-        <section class="profile search-bot">
+<main style="position: relative;">
+<div class="layer"></div>
+    <section class="profile search-bot">
     <div class="profile__container container">
         <div class="profile__wrapper">
             <div class="profile__body body-profile">
