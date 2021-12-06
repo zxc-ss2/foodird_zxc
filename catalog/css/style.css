@@ -285,7 +285,7 @@ h6 {
 }
 
 .footer {
-  margin-top: 100px;
+  padding-top: 100px;
 }
 
 .footer__wrapper {
@@ -490,7 +490,7 @@ hr {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
   background-color: #f2f8fc;
 }
 
@@ -747,7 +747,7 @@ hr {
 }
 
 .page {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .page__body {
@@ -757,6 +757,7 @@ hr {
 
 .search-bot {
   transition: all 0.4s ease 0s;
+  padding-top: 30px;
 }
 
 .aside-page {
@@ -1136,7 +1137,6 @@ body {
   z-index: 10000 !important;
   overflow-y: scroll;
   max-height: 70%;
-  margin: auto auto;
 }
 
 .item-window {

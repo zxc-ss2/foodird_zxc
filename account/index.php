@@ -158,7 +158,8 @@ $user_info = $query_user_info -> fetchAll();
     </div>
 </section>
     </main>
-    <footer class="footer">
+    <footer class="footer" style="position: relative">
+    <div class="layer"></div>
     <div class="footer__wrapper">
         <div class="footer__container container">
             <div class="footer__body body-footer">

@@ -94,7 +94,7 @@ foreach ($cart_categories as $key) {
                 <div class="header__search">
                     <div class="search-form">
                         <form action="#" class="search-form__item">
-                            <a class="search-form__btn icon-search"></a>
+                            <a class="search-form__btn _icon-search"></a>
                             <input autocomplete="off" type="text" name="forma" class="search-from__input">
                             <div class="search-window">
                                 <div class="search-window__content">
@@ -132,7 +132,8 @@ foreach ($cart_categories as $key) {
         </div>
     </div>
 </header>
-    <main>
+    <main style="position: relative">
+    <div class="layer"></div>
         <section class="cart search-bot">
     <div class="cart__container container">
         <div class="cart__wrapper">
@@ -248,7 +249,8 @@ foreach ($cart_categories as $key) {
     </div>
 </section>
     </main>
-<footer class="footer">
+<footer class="footer" style="position: relative">
+<div class="layer"></div>
     <div class="footer__wrapper">
         <div class="footer__container container">
             <div class="footer__body body-footer">

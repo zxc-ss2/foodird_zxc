@@ -1,5 +1,7 @@
-const headerElement = document.querySelector('.header');
+let formWidth = document.querySelector('.search-form__item').offsetWidth;
+document.querySelector('.search-window').style.width = `${formWidth}px`;
 
+const headerElement = document.querySelector('.header');
 const callback = function (entries, observer) {
     if (entries[0].isIntersecting) {
         headerElement.classList.remove('_scroll');
@@ -12,9 +14,11 @@ const callback = function (entries, observer) {
 const headerObserver = new IntersectionObserver(callback);
 headerObserver.observe(headerElement);
 
-function loadProducts(data) {
-}
-;
+window.addEventListener(`resize`, () => {
+    let formWidth = document.querySelector('.search-form__item').offsetWidth;
+    document.querySelector('.search-window').style.width = `${formWidth}px`;
+  });
+
 window.onload = function () {
     document.addEventListener("click", documentActions);
     const offer = document.querySelector('.search-bot');
@@ -43,7 +47,7 @@ window.onload = function () {
             for (let i = 0; i < titles.length; i++) {
                 titles[i].style.zIndex = "0";
             }
-            offer.style = "padding-top: 80px";
+            offer.style = "padding-top: 120px";
 
         }
         else {
@@ -54,7 +58,7 @@ window.onload = function () {
             for (let i = 0; i < titles.length; i++) {
                 titles[i].style.zIndex = "100";
             }
-            offer.style = "padding-top: 0px";
+            offer.style = "padding-top: 30px";
         } 
     }
 };

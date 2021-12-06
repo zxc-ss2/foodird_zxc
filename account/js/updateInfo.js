@@ -71,9 +71,18 @@ saveInfo.addEventListener("click", () => {
                             const successWindow = document.querySelector('.success');
                             successWindow.style.opacity = "1";
                             successWindow.style.visibility = "visible";
+                            let href = window.location.href.split('/');
+                            href[href.length - 2] = "reglog";
+                            href[href.length - 1] = "log.php";
+                            let newHref = "";
+                            for (let i = 0; i < href.length; i++) {
+                                newHref += href[i] + "/";
+                            }
+                            newHref = newHref.substring(0, newHref.length - 1);
                             startTimer(5,timer);
     
                             setTimeout(function () {
+                                
                                 location = "http://localhost/project/reglog/log.php";
                             }, 6000);
                         }

@@ -1,5 +1,7 @@
-const headerElement = document.querySelector('.header');
+let formWidth = document.querySelector('.search-form__item').offsetWidth;
+document.querySelector('.search-window').style.width = `${formWidth}px`;
 
+const headerElement = document.querySelector('.header');
 const callback = function (entries, observer) {
     if (entries[0].isIntersecting) {
         headerElement.classList.remove('_scroll');
@@ -11,6 +13,11 @@ const callback = function (entries, observer) {
 
 const headerObserver = new IntersectionObserver(callback);
 headerObserver.observe(headerElement);
+
+window.addEventListener(`resize`, () => {
+    let formWidth = document.querySelector('.search-form__item').offsetWidth;
+    document.querySelector('.search-window').style.width = `${formWidth}px`;
+  });
 
 // async function getProducts(button) {
 //     if (!button.classList.contains('_hold')) {
@@ -61,9 +68,9 @@ window.onload = function () {
         else {
             const layer = document.querySelectorAll('.layer');
             for (let i = 0; i < layer.length; i++) {
-                layer[i].classList.add('layer-active');
+                layer[i].classList.remove('layer-active');
             }
-            offer.style = "padding-top: 100px";
+            offer.style = "padding-top: 30px";
         } 
     }
 };

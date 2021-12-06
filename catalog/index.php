@@ -69,7 +69,7 @@ if(isset($_GET['category_id'])) {
     <title>Document</title>
 </head>
 
-<body style="position: relative">
+<body>
 <header class="header">
     <div class="header__wrapper">
         <div class="header__container container">
@@ -138,6 +138,7 @@ if(isset($_GET['category_id'])) {
 </header>
 <main style="position: relative;">
 <div class="layer"></div>
+
 <section class="page search-bot">
     <div class="page__container container">
         <div class="page__wrapper">

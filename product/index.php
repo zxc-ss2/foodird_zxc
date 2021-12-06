@@ -59,7 +59,7 @@ $similar_products = $query_similar_products -> fetchAll();
                 <div class="header__search">
                     <div class="search-form">
                         <form action="#" class="search-form__item">
-                            <a class="search-form__btn icon-search"></a>
+                            <a class="search-form__btn _icon-search"></a>
                             <input autocomplete="off" type="text" name="forma" class="search-from__input">
                             <div class="search-window">
                                 <div class="search-window__content">
@@ -98,7 +98,8 @@ $similar_products = $query_similar_products -> fetchAll();
         </div>
     </div>
 </header>
-    <main>
+    <main style="position: relative;">
+    <div class="layer"></div>
         <section class="product search-bot">
             <div class="product__container container">
             <div class="product__wrapper">
@@ -201,7 +202,8 @@ $similar_products = $query_similar_products -> fetchAll();
             </div>
         </section>
     </main>
-    <footer class="footer">
+    <footer class="footer" style="position: relative">
+    <div class="layer"></div>
     <div class="footer__wrapper">
         <div class="footer__container container">
             <div class="footer__body body-footer">

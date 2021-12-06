@@ -30,8 +30,11 @@ function  clearActiveClasses(){
         }
     })
 };
-const headerElement = document.querySelector('.header');
 
+let formWidth = document.querySelector('.search-form__item').offsetWidth;
+document.querySelector('.search-window').style.width = `${formWidth}px`;
+
+const headerElement = document.querySelector('.header');
 const callback = function (entries, observer) {
     if (entries[0].isIntersecting) {
         headerElement.classList.remove('_scroll');
@@ -44,28 +47,29 @@ const callback = function (entries, observer) {
 const headerObserver = new IntersectionObserver(callback);
 headerObserver.observe(headerElement);
 
-async function getProducts(button) {
-    if (!button.classList.contains('_hold')) {
-        button.classList.add('_hold');
-        const file = "json/products.json";
-        let response = await fetch(file, {
-            method: "GET"
-        });
-        if (response.ok) {
-            let result = await response.json();
-            loadProducts(result);
-            button.classList.remove('_hold');
-            button.remove();
-        }
-        else {
-            alert('sesh');
-        }
-    }
-}
+window.addEventListener(`resize`, () => {
+    let formWidth = document.querySelector('.search-form__item').offsetWidth;
+    document.querySelector('.search-window').style.width = `${formWidth}px`;
+  });
 
-function loadProducts(data) {
-}
-;
+// async function getProducts(button) {
+//     if (!button.classList.contains('_hold')) {
+//         button.classList.add('_hold');
+//         const file = "json/products.json";
+//         let response = await fetch(file, {
+//             method: "GET"
+//         });
+//         if (response.ok) {
+//             let result = await response.json();
+//             loadProducts(result);
+//             button.classList.remove('_hold');
+//             button.remove();
+//         }
+//         else {
+//             alert('sesh');
+//         }
+//     }
+// }
 window.onload = function () {
     document.addEventListener("click", documentActions);
     const offer = document.querySelector('.search-bot');

@@ -1,6 +1,8 @@
 // ------------------------header animation-----------------//
-const headerElement = document.querySelector('.header');
+let formWidth = document.querySelector('.search-form__item').offsetWidth;
+document.querySelector('.search-window').style.width = `${formWidth}px`;
 
+const headerElement = document.querySelector('.header');
 const callback = function (entries, observer) {
     if (entries[0].isIntersecting) {
         headerElement.classList.remove('_scroll');
@@ -9,8 +11,14 @@ const callback = function (entries, observer) {
         headerElement.classList.add('_scroll');
     }
 };
+
 const headerObserver = new IntersectionObserver(callback);
 headerObserver.observe(headerElement);
+
+window.addEventListener(`resize`, () => {
+    let formWidth = document.querySelector('.search-form__item').offsetWidth;
+    document.querySelector('.search-window').style.width = `${formWidth}px`;
+  });
 // ------------------------searchobox animation-----------------//
 
 window.onload = function () {
@@ -27,10 +35,18 @@ window.onload = function () {
         }
 
         if (document.querySelector('.search-form._active')) {
-            offer.style = "margin-top: 140px";
+            const layer = document.querySelectorAll('.layer');
+            for (let i = 0; i < layer.length; i++) {
+                layer[i].classList.add('layer-active');
+            }
+            offer.style = "padding-top: 80px";
         }
         else {
-            offer.style = "margin-top: 80px";
+            const layer = document.querySelectorAll('.layer');
+            for (let i = 0; i < layer.length; i++) {
+                layer[i].classList.remove('layer-active');
+            }
+            offer.style = "padding-top: 0px";
         }
 
         if (targetElement.classList.contains('products-more')) {
