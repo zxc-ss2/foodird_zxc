@@ -49,7 +49,7 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                     </div>
                                     <div class="item-product__actions actions-product">
                                         <div class="actions-product__body">
-                                            <a class="btn  actions-product__btn">Добавить</a>
+                                            <a class="btn  actions-product__btn">В корзину</a>
                                         </div>
                                     </div>
                                 </div>

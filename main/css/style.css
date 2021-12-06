@@ -781,7 +781,7 @@ hr {
   padding: 20px;
   transition: all 0.3s ease 0s;
   z-index: 10000 !important;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 70%;
   margin: auto auto;
 }

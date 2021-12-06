@@ -46,11 +46,18 @@ $similar_products = $query_similar_products -> fetchAll();
                                 <li class="menu__item"><a class="menu__link" href="404/404.htm">Покупателям</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="404/404.htm">О компании</a></li>
-                                <li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>
                                 <?php 
                                 if($_SESSION['role'] == 1){
                                     echo '<li class="menu__item"><a class="menu__link" href="../admin/index.php">Админ</a></li>';
                                 }
+                                ?>
+                                <?php 
+                                    if(isset($_SESSION['login'])){
+                                        echo '<li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>';
+                                    }
+                                    else{
+                                        echo '<li class="menu__item"><a class="menu__link" href="../reglog/log.php">Личный кабинет</a></li>';
+                                    }
                                 ?>
                             </ul>
                         </nav>

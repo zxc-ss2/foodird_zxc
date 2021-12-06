@@ -85,11 +85,18 @@ if(isset($_GET['category_id'])) {
                                 <li class="menu__item"><a class="menu__link" href="404/404.htm">Покупателям</a></li>
                                 <li class="menu__item"><a class="menu__link" href="../catalog/index.php">Каталог</a></li>
                                 <li class="menu__item"><a class="menu__link" href="404/404.htm">О компании</a></li>
-                                <li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>
                                 <?php 
                                 if($_SESSION['role'] == 1){
                                     echo '<li class="menu__item"><a class="menu__link" href="../admin/index.php">Админ</a></li>';
                                 }
+                                ?>
+                                <?php 
+                                    if(isset($_SESSION['login'])){
+                                        echo '<li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>';
+                                    }
+                                    else{
+                                        echo '<li class="menu__item"><a class="menu__link" href="../reglog/log.php">Личный кабинет</a></li>';
+                                    }
                                 ?>
                             </ul>
                         </nav>
@@ -199,7 +206,7 @@ if(isset($_GET['category_id'])) {
                                         </div>
                                         <div class="item-product__actions actions-product">
                                             <div class="actions-product__body">
-                                                <a class="btn  actions-product__btn">Добавить</a>
+                                                <a class="btn  actions-product__btn">В корзину</a>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +232,7 @@ if(isset($_GET['category_id'])) {
                                         </div>
                                         <div class="item-product__actions actions-product">
                                             <div class="actions-product__body">
-                                                <a class="btn  actions-product__btn">Добавить</a>
+                                                <a class="btn  actions-product__btn">В корзину</a>
                                             </div>
                                         </div>
                                     </div>
@@ -258,7 +265,7 @@ if(isset($_GET['category_id'])) {
                                         </div>
                                         <div class="item-product__actions actions-product">
                                             <div class="actions-product__body">
-                                                <a class="btn  actions-product__btn">Добавить</a>
+                                                <a class="btn  actions-product__btn">В корзину</a>
                                             </div>
                                         </div>
                                     </div>

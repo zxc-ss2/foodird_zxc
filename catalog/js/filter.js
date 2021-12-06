@@ -36,7 +36,7 @@ priceDecrese.addEventListener("click", () => {
                                 </div>
                                 <div class="item-product__actions actions-product">
                                     <div class="actions-product__body">
-                                        <a class="btn  actions-product__btn">Добавить</a>
+                                        <a class="btn  actions-product__btn">В корзину</a>
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +193,7 @@ priceIncrese.addEventListener("click", () => {
                                 </div>
                                 <div class="item-product__actions actions-product">
                                     <div class="actions-product__body">
-                                        <a class="btn  actions-product__btn">Добавить</a>
+                                        <a class="btn  actions-product__btn">В корзину</a>
                                     </div>
                                 </div>
                             </div>

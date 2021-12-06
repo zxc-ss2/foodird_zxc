@@ -83,7 +83,7 @@ saveInfo.addEventListener("click", () => {
     
                             setTimeout(function () {
                                 
-                                location = "http://localhost/project/reglog/log.php";
+                                // location = "http://localhost/project/reglog/log.php";
                             }, 6000);
                         }
                     }
@@ -125,11 +125,15 @@ savePass.addEventListener("click", () => {
                 {
                     if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
                     {
+                        let timer = document.querySelectorAll('.timer')[1];
+                        console.log(document.querySelector('.timer'));
+                        timer.style.fontSize = "20px";
                         data = [];
                         const successWindow = document.querySelectorAll('.success')[1];
                         successWindow.style.opacity = "1";
                         successWindow.style.visibility = "visible";
     
+                        startTimer(5,timer);
                         setTimeout(function () {
                             location = "http://localhost/project/reglog/log.php";
                         }, 5000);
