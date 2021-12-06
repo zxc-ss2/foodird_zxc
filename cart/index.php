@@ -264,10 +264,10 @@ foreach ($cart_categories as $key) {
                         </p>
                     </div>
                     <div class="left-content__links">
-                        <a href="#" class="_icon-twitter"></a>
-                        <a href="#" class="_icon-insta"></a>
-                        <a href="#" class="_icon-facebook"></a>
-                        <a href="#" class="_icon-vk"></a>
+                        <a href="404/404.htm" class="_icon-twitter"></a>
+                        <a href="404/404.htm" class="_icon-insta"></a>
+                        <a href="404/404.htm" class="_icon-facebook"></a>
+                        <a href="404/404.htm" class="_icon-vk"></a>
                     </div>
                 </div>
                 <div class="body-footer__right right-content">
@@ -276,7 +276,7 @@ foreach ($cart_categories as $key) {
                     </div>
                     <div class="right-content__form join-form">
                         <input type="text" placeholder="Ваш Email" class="join-form__input">
-                        <a href="#">></a>
+                        <a href="404/404.htm">></a>
                     </div>
                     <div class="right-content__menu footer-menu">
                         <div class="footer-menu__body">

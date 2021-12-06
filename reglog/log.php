@@ -1,3 +1,7 @@
+<?php
+require_once "../db/connect.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +44,16 @@
 						<input class="input100" type="text" name="pass" placeholder="*************">
 						<span class="focus-input100"></span>
 					</div>
+
+					<?php 
+					if(isset($_SESSION['message_l'])){
+						echo '
+						<div class="message fail">
+							<h3>'. $_SESSION['message_l'] .'</h3>
+						</div>
+						';
+					}
+					?>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">

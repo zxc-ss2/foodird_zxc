@@ -1,3 +1,7 @@
+<?php
+require_once "../db/connect.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -66,6 +70,15 @@
 							</label>
 						</div>
 					</div>
+					<?php 
+					if(isset($_SESSION['message'])){
+						echo '
+						<div class="message fail">
+							<h3>'. $_SESSION['message'] .'</h3>
+						</div>
+						';
+					}
+					?>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">

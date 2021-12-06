@@ -1012,6 +1012,7 @@ color: #000;
   position: relative;
   z-index: 100;
   color: #000;
+  font-size: 16px;
 }
 
 .item-product__text {
@@ -1032,6 +1033,7 @@ color: #000;
 .item-product__price {
   color: red;
   font-weight: 600;
+  font-size: 18px;
 }
 
 .item-product__price_old {

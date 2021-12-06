@@ -201,8 +201,8 @@ if(isset($_GET['category_id'])) {
                                         <a href="../product/index.php?id='. $key['product_id'] .'&category='. $key['category_id'] .'"><h5 class="item-product__title">'. $key['product_name'] .'</h5></a>
                                         </div>
                                         <div class="item-product__prices">
-                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>
-                                            <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб./кг</div>
+                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб.</div>
+                                            <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб.</div>
                                         </div>
                                         <div class="item-product__actions actions-product">
                                             <div class="actions-product__body">
@@ -227,8 +227,8 @@ if(isset($_GET['category_id'])) {
                                         <a href="../product/index.php?id='. $key['product_id'] .'&category='. $key['category_id'] .'"><h5 class="item-product__title">'. $key['product_name'] .'</h5></a>
                                         </div>
                                         <div class="item-product__prices">
-                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>
-                                            <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб./кг</div>
+                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб.</div>
+                                            <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб.</div>
                                         </div>
                                         <div class="item-product__actions actions-product">
                                             <div class="actions-product__body">
@@ -260,8 +260,8 @@ if(isset($_GET['category_id'])) {
                                         <a href="../product/index.php?id='. $key['product_id'] .'&category='. $key['category_id'] .'"><h5 class="item-product__title">'. $key['product_name'] .'</h5></a>
                                         </div>
                                         <div class="item-product__prices">
-                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>
-                                            <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб./кг</div>
+                                            <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб.</div>
+                                            <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб.</div>
                                         </div>
                                         <div class="item-product__actions actions-product">
                                             <div class="actions-product__body">
@@ -299,10 +299,10 @@ if(isset($_GET['category_id'])) {
                         </p>
                     </div>
                     <div class="left-content__links">
-                        <a href="#" class="_icon-twitter"></a>
-                        <a href="#" class="_icon-insta"></a>
-                        <a href="#" class="_icon-facebook"></a>
-                        <a href="#" class="_icon-vk"></a>
+                        <a href="404/404.htm" class="_icon-twitter"></a>
+                        <a href="404/404.htm" class="_icon-insta"></a>
+                        <a href="404/404.htm" class="_icon-facebook"></a>
+                        <a href="404/404.htm" class="_icon-vk"></a>
                     </div>
                 </div>
                 <div class="body-footer__right right-content">
@@ -311,7 +311,7 @@ if(isset($_GET['category_id'])) {
                     </div>
                     <div class="right-content__form join-form">
                         <input type="text" placeholder="Ваш Email" class="join-form__input">
-                        <a href="#">></a>
+                        <a href="404/404.htm">></a>
                     </div>
                     <div class="right-content__menu footer-menu">
                         <div class="footer-menu__body">

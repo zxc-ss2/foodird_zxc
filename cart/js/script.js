@@ -46,7 +46,7 @@ window.onload = function () {
             for (let i = 0; i < layer.length; i++) {
                 layer[i].classList.remove('layer-active');
             }
-            offer.style = "padding-top: 0px";
+            offer.style = "padding-top: 30px";
         }
 
         if (targetElement.classList.contains('products-more')) {
@@ -155,7 +155,7 @@ for (let i = 0; i < less.length; i++) {
         }
         char.textContent = String(minus);
         dynamicPrice.textContent = String(finishPrice.toFixed(1));
-        payCart.textContent = payCartPrice.toFixed(1) + "Р"; 
+        payCart.textContent = payCartPrice.toFixed(2) + "Р"; 
     })
 }
 
@@ -176,7 +176,7 @@ for (let i = 0; i < more.length; i++) {
 
     })
     payCartPrice += Number(defaultPrice[i].dataset.price);
-    payCart.textContent = payCartPrice.toFixed(1) + "Р";
+    payCart.textContent = payCartPrice.toFixed(2) + "Р";
 }
 
 // ------------------------similar products output-----------------//
@@ -258,6 +258,9 @@ new Promise((resolve,reject) => {
                                             if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
                                             {
                                                 numbers.push(links[i].parentNode.parentNode.parentNode.parentNode.dataset.id);
+                                                setTimeout(() => {
+                                                    location.reload();
+                                                },900)
                                             }
                                         }
                                         xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -328,6 +331,9 @@ for (let i = 0; i < removeBtns.length; i++) {
         })
         removeData = cartItems[i].dataset.id;
 
+        for (let j = 0; j < document.querySelectorAll('.item-cart__delete').length; j++) {
+            document.querySelectorAll('.item-cart__delete')[j].style.pointerEvents = 'none';
+        }
 
         setTimeout(() => {
             new Promise((resolve,reject) => {

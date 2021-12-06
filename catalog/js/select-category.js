@@ -44,8 +44,8 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                     <a href="../product/index.php?id=${Object.values(result)[i]['product_id']}&category=${Object.values(result)[i]['category_id']}"><h5 class="item-product__title">${Object.values(result)[i]['product_name']}</h5></a>
                                     </div>
                                     <div class="item-product__prices">
-                                        <div class="item-product__price">${(Object.values(result)[i]['product_price'] - Object.values(result)[i]['product_price'] * (Object.values(result)[i]['discount_value'])/100).toFixed(1)} руб./кг</div>
-                                        <div class="item-product__price item-product__price_old">${Object.values(result)[i]['product_price']}руб./кг</div>
+                                        <div class="item-product__price">${(Object.values(result)[i]['product_price'] - Object.values(result)[i]['product_price'] * (Object.values(result)[i]['discount_value'])/100).toFixed(1)} руб.</div>
+                                        <div class="item-product__price item-product__price_old">${Object.values(result)[i]['product_price']}руб.</div>
                                     </div>
                                     <div class="item-product__actions actions-product">
                                         <div class="actions-product__body">
@@ -176,6 +176,7 @@ for (let i = 0; i < asidePageItem.length; i++) {
                                                                         if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
                                                                         {
                                                                             numbers.push(links[i].parentNode.parentNode.parentNode.parentNode.dataset.id);
+                                                                            links[i].parentNode.parentNode.parentNode.parentNode.childNodes[1].children[1].style.display = "flex";
                                                                         }
                                                                     }
                                                                     xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

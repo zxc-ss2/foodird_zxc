@@ -35,10 +35,12 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['pass']) && i
 
         else{
             $_SESSION['message'] = "Пользователь с такми логином уже зарегистрирован.";
+            header("Location: ../reglog/reg.php");
         }
     }
     else{
         $_SESSION['message'] = "Пароли не совпадают.";
+        header("Location: ../reglog/log.php");
     }
 }
 

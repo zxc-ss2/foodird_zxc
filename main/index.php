@@ -118,7 +118,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                         </div>
                     </div>
                     <div class="slider__item">
-                        <div class="wrapper3">
+                        <div class="wrapper wrapper3">
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                 <div class="gallery__items">
                     <div class="gallery__column _anim-item">
                         <div class="gallery__row row-gallery row-gallery__left-top">
-                            <a href="" class="row-gallery__item" style="background: #e1f6f9; width: 500px; min-height: 300px">
+                            <a class="row-gallery__item" style="background: #e1f6f9; width: 500px; min-height: 300px">
                                 <!-- <img style="height: 300px; width: 500px;" src="img/gallery-1.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/1.jpg) no-repeat;">
@@ -154,7 +154,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                                     </div>
                                 </div>
                             </a>
-                            <a href="" class="row-gallery__item" style="background:#edf5d6; width: 500px; min-height: 340px">
+                            <a class="row-gallery__item" style="background:#edf5d6; width: 500px; min-height: 340px">
                                 <!-- <img style="width: 500px; height: 340px;" src="img/gallery-2.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/2.jpg) no-repeat;">
@@ -173,7 +173,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                             </a>
                         </div>
                         <div class="gallery__row row-gallery row-gallery__left-bottom">
-                            <a href="" class="row-gallery__item" style="background: #fef6eb; width: 375px; min-height: 300px">
+                            <a class="row-gallery__item" style="background: #fef6eb; width: 375px; min-height: 300px">
                                 <!-- <img style="height: 301px; width: 375px;" src="img/gallery-3.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/3.jpg) no-repeat;">
@@ -190,7 +190,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                                     </div>
                                 </div>
                             </a>
-                            <a href="" class="row-gallery__item" style="background: #faecfa; width: 450px; min-height: 245px">
+                            <a class="row-gallery__item" style="background: #faecfa; width: 450px; min-height: 245px">
                                 <!-- <img style="width: 450px; height: 245px;" src="img/gallery-4.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/4.jpg) no-repeat;">
@@ -211,7 +211,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                     </div>
                     <div class="gallery__column _anim-item">
                         <div class="gallery__row row-gallery row-gallery__center">
-                            <a href="" class="row-gallery__item" style="background: #ffe8db; width: 550px;">
+                            <a class="row-gallery__item" style="background: #ffe8db; width: 550px;">
                                 <!-- <img style="width: 550px;" src="img/gallery-5.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/5.jpg) no-repeat;">
@@ -232,7 +232,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                     </div>
                     <div class="gallery__column _anim-item">
                         <div class="gallery__row row-gallery row-gallery__right-top">
-                            <a href="" class="row-gallery__item" style="background: #dfebfd; width: 375px; min-height: 300px">
+                            <a class="row-gallery__item" style="background: #dfebfd; width: 375px; min-height: 300px">
                                 <!-- <img style="width: 500px;" src="img/gallery-6.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/6.jpg) no-repeat;">
@@ -249,7 +249,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                                     </div>
                                 </div>
                             </a>
-                            <a href="../" class="row-gallery__item" style="background: #dcf8ec; width: 500px; min-height: 300px">
+                            <a class="row-gallery__item" style="background: #dcf8ec; width: 500px; min-height: 300px">
                                 <!-- <img style="height: 300px; width: 500px;" src="img/gallery-7.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/7.jpg) no-repeat;">
@@ -268,7 +268,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                             </a>
                         </div>
                         <div class="gallery__row row-gallery row-gallery__right-bottom">
-                            <a href="" class="row-gallery__item" style="background: #faecfa; width: 450px;">
+                            <a class="row-gallery__item" style="background: #faecfa; width: 450px;">
                                 <!-- <img style="width: 450px;" src="img/gallery-8.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/8.jpg) no-repeat;">
@@ -285,7 +285,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                                     </div>
                                 </div>
                             </a>
-                            <a href="" class="row-gallery__item" style="background: #fce2e2;">
+                            <a class="row-gallery__item" style="background: #fce2e2;">
                                 <!-- <img src="img/gallery-9.jpg" alt=""> -->
                                 <div class="responce">
                                     <div class="responce__photo" style="background: center/cover url(img/responces/9.jpg) no-repeat;">
@@ -425,8 +425,8 @@ $purchases_products = $purchases_products_query -> fetchAll();
                                 <a href="../product/index.php?id='. $key['product_id'] .'&category='. $key['category_id'] .'"><h5 class="item-product__title">'. $key['product_name'] .'</h5></a>
                                 </div>
                                 <div class="item-product__prices">
-                                    <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб./кг</div>
-                                    <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб./кг</div>
+                                    <div class="item-product__price">'. round($key['product_price']-$key['product_price'] * $key['discount_value']/100,1) .'руб.</div>
+                                    <div class="item-product__price item-product__price_old">'. $key['product_price'] .'руб.</div>
                                 </div>
                             </div>
                         </article>';
@@ -480,10 +480,10 @@ $purchases_products = $purchases_products_query -> fetchAll();
                         </p>
                     </div>
                     <div class="left-content__links">
-                        <a href="#" class="_icon-twitter"></a>
-                        <a href="#" class="_icon-insta"></a>
-                        <a href="#" class="_icon-facebook"></a>
-                        <a href="#" class="_icon-vk"></a>
+                        <a href="404/404.htm" class="_icon-twitter"></a>
+                        <a href="404/404.htm" class="_icon-insta"></a>
+                        <a href="404/404.htm" class="_icon-facebook"></a>
+                        <a href="404/404.htm" class="_icon-vk"></a>
                     </div>
                 </div>
                 <div class="body-footer__right right-content">
@@ -492,7 +492,7 @@ $purchases_products = $purchases_products_query -> fetchAll();
                     </div>
                     <div class="right-content__form join-form">
                         <input type="text" placeholder="Ваш Email" class="join-form__input">
-                        <a href="#">></a>
+                        <a href="404/404.htm">></a>
                     </div>
                     <div class="right-content__menu footer-menu">
                         <div class="footer-menu__body">

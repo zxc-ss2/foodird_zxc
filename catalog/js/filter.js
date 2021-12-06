@@ -122,6 +122,7 @@ new Promise((resolve,reject) => {
                                             if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
                                             {
                                                 numbers.push(links[i].parentNode.parentNode.parentNode.parentNode.dataset.id);
+                                                links[i].parentNode.parentNode.parentNode.parentNode.childNodes[1].children[1].style.display = "flex";
                                             }
                                         }
                                         xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -279,6 +280,7 @@ new Promise((resolve,reject) => {
                                             if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
                                             {
                                                 numbers.push(links[i].parentNode.parentNode.parentNode.parentNode.dataset.id);
+                                                links[i].parentNode.parentNode.parentNode.parentNode.childNodes[1].children[1].style.display = "flex";
                                             }
                                         }
                                         xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

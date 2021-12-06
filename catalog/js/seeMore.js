@@ -49,6 +49,7 @@ seeMore.addEventListener('click', () => {
                             let productId = 0;
                         
                             for (let i = 0; i < links.length; i++) {
+                                
                                 links[i].addEventListener('click', () =>{
                                     productId = links[i].closest('.item-product').dataset.id;
                                     if(!links[i].classList.contains('_hold')){
@@ -96,6 +97,7 @@ seeMore.addEventListener('click', () => {
                                                     if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
                                                     {
                                                         numbers.push(links[i].parentNode.parentNode.parentNode.parentNode.dataset.id);
+                                                        links[i].parentNode.parentNode.parentNode.parentNode.childNodes[1].children[1].style.display = "flex";
                                                     }
                                                 }
                                                 xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

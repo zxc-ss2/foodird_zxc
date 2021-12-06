@@ -845,6 +845,13 @@ hr {
   height: 628px;
 }
 
+.wrapper3 {
+  background: url(../img/banner_prev3.jpg) no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 628px;
+}
+
 .gallery {
   padding: 120px 0;
   overflow: hidden;
@@ -1337,6 +1344,7 @@ hr {
   position: relative;
   z-index: 100;
   color: #000;
+  font-size: 16px;
 }
 
 .item-product__text {
@@ -1357,6 +1365,7 @@ hr {
 .item-product__price {
   color: red;
   font-weight: 600;
+  font-size: 18px;
 }
 
 .item-product__price_old {
@@ -1446,6 +1455,10 @@ body {
     width: 70%;
     margin-left: 0;
     margin-top: 20px;
+  }
+
+  .body-women__title{
+    margin-top: 30px;
   }
 
   .join-form__input {
