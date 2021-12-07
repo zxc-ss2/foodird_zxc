@@ -30,10 +30,12 @@ if(isset($_POST['username']) && isset($_POST['pass'])){
         }   
         else{
             $_SESSION['message_l'] = "Неверный логин или пароль";
+            header("Location: ../reglog/log.php");
         }
     }
     else{
         $_SESSION['message_l'] = "Неверный логин или пароль";
+        header("Location: ../reglog/log.php");
     }
 }
 ?>

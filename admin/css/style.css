@@ -650,6 +650,10 @@ hr {
   font-family: "Lucida Grande", sans-serif;
 }
 
+tbody{
+  vertical-align: top !important;
+}
+
 .table_price caption {
   background: #f2f8fc;
   border-top-left-radius: 10px;
@@ -661,10 +665,12 @@ hr {
   font-size: 26px;
   text-align: center;
   margin: 0;
+  vertical-align: top
 }
 
 .table_price td {
   padding: 10px;
+  vertical-align: top
 }
 
 .table_price th {

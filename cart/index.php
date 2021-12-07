@@ -82,6 +82,7 @@ foreach ($cart_categories as $key) {
                                 <?php 
                                     if(isset($_SESSION['login'])){
                                         echo '<li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>';
+                                        echo $_SESSION['role'];
                                     }
                                     else{
                                         echo '<li class="menu__item"><a class="menu__link" href="../reglog/log.php">Личный кабинет</a></li>';

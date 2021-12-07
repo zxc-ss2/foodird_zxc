@@ -29,6 +29,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['pass']) && i
                 'password' => $hashed_password,
                 'role' => 2
             ));
+            $get_r = $query -> fetchAll();
             $_SESSION['login'] = $email;
             header("Location: ../account/index.php");
         }

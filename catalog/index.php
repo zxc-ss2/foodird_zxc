@@ -105,7 +105,7 @@ if(isset($_GET['category_id'])) {
                 <div class="header__search">
                     <div class="search-form">
                         <form action="#" class="search-form__item" style="">
-                            <a class="search-form__btn icon-search"></a>
+                            <a class="search-form__btn _icon-search"></a>
                             <input autocomplete="off" type="text" name="forma" class="search-from__input">
                             <div class="search-window">
                                 <div class="search-window__content">
@@ -353,13 +353,13 @@ if(isset($_GET['category_id'])) {
         <p>©2021. Официальный сайт сети "foodird"</p>
     </div>
 </footer>
+<script src="js/select-category.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/seeMore.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/select-category.js"></script>
     <script src="js/search.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <script src="js/script.js"></script>
 </body>
 
 </html>

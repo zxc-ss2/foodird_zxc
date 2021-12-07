@@ -28,7 +28,7 @@ searchInput.addEventListener("input", () => {
                                 </div>
                                 <div class="item-window__info info-window">
                                     <a style="color: #000;" href="../product/index.php?id=${Object.values(data)[i]['product_id']}&category=${Object.values(data)[i]['category_id']}" class="info-window__name">${Object.values(data)[i]['product_name']}</a>
-                                    <div class="info-window__price">${Object.values(data)[i]['product_price']}</div>
+                                    <div class="info-window__price">${Object.values(data)[i]['product_price']}руб.</div>
                                 </div>
                             </div>
                             `;
