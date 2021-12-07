@@ -1,6 +1,3 @@
-let formWidth = document.querySelector('.search-form__item').offsetWidth;
-document.querySelector('.search-window').style.width = `${formWidth}px`;
-
 const headerElement = document.querySelector('.header');
 const callback = function (entries, observer) {
     if (entries[0].isIntersecting) {
@@ -20,6 +17,8 @@ window.addEventListener(`resize`, () => {
   });
 
 window.onload = function () {
+    let formWidth = document.querySelector('.search-form__item').offsetWidth;
+    document.querySelector('.search-window').style.width = `${formWidth}px`;
     document.addEventListener("click", documentActions);
     const offer = document.querySelector('.search-bot');
     const searchWindow = document.querySelector('.search-window');

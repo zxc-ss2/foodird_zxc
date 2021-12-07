@@ -221,16 +221,3 @@ for (let i = 0; i < asidePageItem.length; i++) {
     })
 }
 
-
-const sliderItemsLabels = document.querySelectorAll('.item-product__label_sale');
-const productPrices = document.querySelectorAll('.item-product__prices');
-
-for (let i = 0; i < sliderItemsLabels.length; i++) {
-    if(sliderItemsLabels[i].textContent == "-0%"){
-        sliderItemsLabels[i].style.display = "none";
-        const remove = productPrices[i].children[0];
-        const decor = productPrices[i].children[1];
-        remove.parentNode.removeChild(remove);
-        decor.style.textDecoration = "none";
-    }
-}

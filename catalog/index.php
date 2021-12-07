@@ -353,7 +353,7 @@ if(isset($_GET['category_id'])) {
         <p>©2021. Официальный сайт сети "foodird"</p>
     </div>
 </footer>
-<script src="js/select-category.js"></script>
+    <script src="js/select-category.js"></script>                           
     <script src="js/script.js"></script>
     <script src="js/seeMore.js"></script>
     <script src="js/filter.js"></script>
