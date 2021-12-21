@@ -496,16 +496,6 @@ $purchases_products = $purchases_products_query -> fetchAll();
                     </div>
                     <div class="right-content__menu footer-menu">
                         <div class="footer-menu__body">
-                            <h5>Каталог</h5>
-                            <div class="footer-menu__shop">
-                                <ul class="shop-menu">
-                                    <li class="shop-menu__item"><a href="404/404.htm">Фрукты, Овощи</a></li>
-                                    <li class="shop-menu__item"><a href="404/404.htm">Мясо, птица</a></li>
-                                    <li class="shop-menu__item"><a href="404/404.htm">Молоко, сыр</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="footer-menu__body">
                             <h5>Контакты</h5>
                             <div class="footer-menu__help">
                                 <ul class="help-menu">

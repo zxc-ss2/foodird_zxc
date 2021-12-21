@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 03 2021 г., 00:07
+-- Время создания: Дек 21 2021 г., 21:14
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.2.34
 
@@ -38,68 +38,10 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `product_id`, `email`) VALUES
-(201, 64, 'skochkov.aleksey@yandex.ru'),
-(202, 65, 'skochkov.aleksey@yandex.ru'),
 (204, 70, 'ubaykarova1@gmail.com'),
-(206, 6, 'ubaykarova1@gmail.com'),
 (208, 69, 'ubaykarova1@gmail.com'),
-(211, 73, 'ubaykarova@gmail.com'),
-(232, 98, 'skochkov.aleksey@yandex.ru'),
-(233, 96, 'skochkov.aleksey@yandex.ru'),
-(234, 55, 'skochkov.aleksey@yandex.ru'),
-(235, 90, 'skochkov.aleksey@yandex.ru'),
-(252, 59, 'skochkov.aleksey@yandex.ru'),
-(253, 60, 'skochkov.aleksey@yandex.ru'),
-(254, 117, 'skochkov.aleksey@yandex.ru'),
-(255, 112, 'skochkov.aleksey@yandex.ru'),
-(256, 34, 'skochkov.aleksey@yandex.ru'),
-(257, 25, 'skochkov.aleksey@yandex.ru'),
-(258, 38, 'skochkov.aleksey@yandex.ru'),
-(259, 36, 'skochkov.aleksey@yandex.ru'),
-(260, 40, 'skochkov.aleksey@yandex.ru'),
-(261, 23, 'skochkov.aleksey@yandex.ru'),
-(262, 24, 'skochkov.aleksey@yandex.ru'),
-(263, 39, 'skochkov.aleksey@yandex.ru'),
-(264, 41, 'skochkov.aleksey@yandex.ru'),
-(265, 35, 'skochkov.aleksey@yandex.ru'),
-(266, 37, 'skochkov.aleksey@yandex.ru'),
-(267, 147, 'skochkov.aleksey@yandex.ru'),
-(268, 146, 'skochkov.aleksey@yandex.ru'),
-(269, 145, 'skochkov.aleksey@yandex.ru'),
-(270, 142, 'skochkov.aleksey@yandex.ru'),
-(271, 143, 'skochkov.aleksey@yandex.ru'),
-(272, 144, 'skochkov.aleksey@yandex.ru'),
-(273, 17, 'skochkov.aleksey@yandex.ru'),
-(274, 16, 'skochkov.aleksey@yandex.ru'),
-(275, 18, 'skochkov.aleksey@yandex.ru'),
-(276, 100, 'skochkov.aleksey@yandex.ru'),
-(277, 99, 'skochkov.aleksey@yandex.ru'),
-(278, 95, 'skochkov.aleksey@yandex.ru'),
-(279, 97, 'skochkov.aleksey@yandex.ru'),
-(280, 94, 'skochkov.aleksey@yandex.ru'),
-(281, 93, 'skochkov.aleksey@yandex.ru'),
-(282, 92, 'skochkov.aleksey@yandex.ru'),
-(283, 134, 'skochkov.aleksey@yandex.ru'),
-(284, 131, 'skochkov.aleksey@yandex.ru'),
-(285, 132, 'skochkov.aleksey@yandex.ru'),
-(286, 135, 'skochkov.aleksey@yandex.ru'),
-(287, 133, 'skochkov.aleksey@yandex.ru'),
-(289, 61, 'skochkov.aleksey@yandex.ru'),
-(290, 63, 'skochkov.aleksey@yandex.ru'),
-(291, 62, 'skochkov.aleksey@yandex.ru'),
-(292, 6, 'skochkov.aleksey@yandex.ru'),
-(293, 66, 'skochkov.aleksey@yandex.ru'),
-(294, 67, 'skochkov.aleksey@yandex.ru'),
-(295, 70, 'skochkov.aleksey@yandex.ru'),
-(296, 69, 'skochkov.aleksey@yandex.ru'),
-(297, 80, 'skochkov.aleksey@yandex.ru'),
-(298, 121, 'skochkov.aleksey@yandex.ru'),
-(299, 89, 'skochkov.aleksey@yandex.ru'),
-(300, 123, 'skochkov.aleksey@yandex.ru'),
-(301, 52, 'skochkov.aleksey@yandex.ru'),
-(302, 54, 'skochkov.aleksey@yandex.ru'),
-(303, 53, 'skochkov.aleksey@yandex.ru'),
-(304, 51, 'skochkov.aleksey@yandex.ru');
+(349, 23, 'skochkov.aleksey@yandex.ru'),
+(356, 131, 'uliya@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -129,7 +71,7 @@ INSERT INTO `categories` (`category_id`, `category_name`, `category_img`) VALUES
 (11, 'Рыба и морепродукты', 'img/catalog-bg-img/fish.png'),
 (12, 'Замороженные продукты', 'img/catalog-bg-img/ice.png'),
 (13, 'Соусы, кетчупы, майонезы', 'img/catalog-bg-img/souces.png'),
-(14, 'img/Кофе, чай, какао', 'img/catalog-bg-img/tea.png'),
+(14, 'Кофе, чай, какао', 'img/catalog-bg-img/tea.png'),
 (15, 'Продукты быстрого приготовления', 'img/catalog-bg-img/fasteat.png'),
 (16, 'Орехи, семечки, сухофрукты', 'img/catalog-bg-img/nuts.png'),
 (18, 'Алкогольные напитки', 'img/catalog-bg-img/alchacol.png');
@@ -171,20 +113,6 @@ INSERT INTO `discounts` (`discount_id`, `discount_value`) VALUES
 (19, 95),
 (20, 100),
 (21, 0);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `limits`
---
-
-CREATE TABLE `limits` (
-  `limit_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `product_name` varchar(200) NOT NULL,
-  `product_path` varchar(255) NOT NULL,
-  `product_price` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -365,16 +293,15 @@ CREATE TABLE `purchases` (
   `category_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- --------------------------------------------------------
-
 --
--- Структура таблицы `removed-products`
+-- Дамп данных таблицы `purchases`
 --
 
-CREATE TABLE `removed-products` (
-  `removed-product_id` int NOT NULL,
-  `product_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+INSERT INTO `purchases` (`purchase_id`, `purchase_count`, `purchase_date`, `user_id`, `product_id`, `category_id`) VALUES
+(15, 3, '2021-12-02', 13, 8, 5),
+(16, 5, '2021-11-25', 13, 16, 18),
+(17, 1, '2021-12-02', 13, 37, 4),
+(18, 4, '2021-12-10', 13, 56, 8);
 
 -- --------------------------------------------------------
 
@@ -440,8 +367,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `role_id`) VALUES
-(13, 'Алексей', 'skochkov.aleksey@yandex.ru', '$2y$10$DJMUv9TJBiYPw0dVbGS.X.TRXgPR9bg4MCRJdJIOG4VT1HcYWB.a6', 1),
-(15, 'Юлия', 'ubaykarova@gmail.com', '$2y$10$E7b6ROWTIBtzdNwJ4fDfMOuK4AOQlk/CzwhAWHd40D3ZrdNIWQ9Rm', 2);
+(13, 'алексей', 'skochkov.aleksey@yandex.ru', '$2y$10$DJMUv9TJBiYPw0dVbGS.X.TRXgPR9bg4MCRJdJIOG4VT1HcYWB.a6', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -467,12 +393,6 @@ ALTER TABLE `discounts`
   ADD PRIMARY KEY (`discount_id`);
 
 --
--- Индексы таблицы `limits`
---
-ALTER TABLE `limits`
-  ADD PRIMARY KEY (`limit_id`);
-
---
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
@@ -489,13 +409,6 @@ ALTER TABLE `purchases`
   ADD KEY `user_id` (`user_id`),
   ADD KEY `product_id` (`product_id`),
   ADD KEY `category_id` (`category_id`);
-
---
--- Индексы таблицы `removed-products`
---
-ALTER TABLE `removed-products`
-  ADD PRIMARY KEY (`removed-product_id`),
-  ADD KEY `product_id` (`product_id`);
 
 --
 -- Индексы таблицы `roles`
@@ -524,7 +437,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
+  MODIFY `cart_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=357;
 
 --
 -- AUTO_INCREMENT для таблицы `categories`
@@ -539,12 +452,6 @@ ALTER TABLE `discounts`
   MODIFY `discount_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT для таблицы `limits`
---
-ALTER TABLE `limits`
-  MODIFY `limit_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
@@ -554,13 +461,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `purchase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT для таблицы `removed-products`
---
-ALTER TABLE `removed-products`
-  MODIFY `removed-product_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `purchase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`
@@ -578,7 +479,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

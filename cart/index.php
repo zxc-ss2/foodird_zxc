@@ -82,7 +82,6 @@ foreach ($cart_categories as $key) {
                                 <?php 
                                     if(isset($_SESSION['login'])){
                                         echo '<li class="menu__item"><a class="menu__link" href="../account/index.php">Личный кабинет</a></li>';
-                                        echo $_SESSION['role'];
                                     }
                                     else{
                                         echo '<li class="menu__item"><a class="menu__link" href="../reglog/log.php">Личный кабинет</a></li>';
@@ -280,16 +279,6 @@ foreach ($cart_categories as $key) {
                         <a href="404/404.htm">></a>
                     </div>
                     <div class="right-content__menu footer-menu">
-                        <div class="footer-menu__body">
-                            <h5>Каталог</h5>
-                            <div class="footer-menu__shop">
-                                <ul class="shop-menu">
-                                    <li class="shop-menu__item"><a href="404/404.htm">Фрукты, Овощи</a></li>
-                                    <li class="shop-menu__item"><a href="404/404.htm">Мясо, птица</a></li>
-                                    <li class="shop-menu__item"><a href="404/404.htm">Молоко, сыр</a></li>
-                                </ul>
-                            </div>
-                        </div>
                         <div class="footer-menu__body">
                             <h5>Контакты</h5>
                             <div class="footer-menu__help">

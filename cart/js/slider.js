@@ -66,6 +66,8 @@ $(document).ready(function ($) {
         dots: false,
         arrows: true,
         slidesToShow: 4,
+        autoplay: true,
+        autoplaySpeed: 2100,
         responsive: [
             {
                 breakpoint: 480,

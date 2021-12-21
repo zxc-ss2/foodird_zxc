@@ -26,7 +26,7 @@ if(isset($_POST['username']) && isset($_POST['pass'])){
         if(!empty($result)){
             $_SESSION['login'] = $login;
             $_SESSION['role'] = $result[0]['role_id'];
-            header("Location: ../cart/index.php");
+            header("Location: ../account/index.php");
         }   
         else{
             $_SESSION['message_l'] = "Неверный логин или пароль";
